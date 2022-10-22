@@ -10,13 +10,13 @@
         
             <div class="navbar-header">
                 <a href="index.html" class="navbar-brand logo">
-                    <img src="assets/img/main%20logo%203.png" class="img-fluid" alt="Logo">
+                    <img src="{{ asset('assets/img/main logo 3.png') }}" class="img-fluid" alt="Logo">
                 </a>
             </div>
             <div class="main-menu-wrapper">
                 <div class="menu-header">
                     <a href="index.html" class="menu-logo">
-                        <img src="assets/img/main%20logo%203.png" class="img-fluid" alt="Logo">
+                        <img src="{{ asset('assets/img/main logo 3.png') }} class="img-fluid" alt="Logo">
                     </a>
                 </div>
             </div>
@@ -40,13 +40,14 @@
                                 <div class="login-header">
                                     <h3>تسجيل الدخول</h3>
                                 </div>
-                                <form action="login.html">
+                                <form action="{{ route('login') }}" method="post">
+                                    @csrf
                                     <div class="form-group form-focus">
-                                        <input type="email" class="form-control floating">
+                                        <input type="text" name="email_or_phone" class="form-control floating">
                                         <label class="focus-label">البريد الإكتروني أو رقم الهاتف</label>
                                     </div>
                                      <div class="form-group form-focus">
-                                        <input type="password" id="txtPassword" class="form-control floating" name="txtPassword" />
+                                        <input type="password" name="password" id="txtPassword" class="form-control floating" name="txtPassword" />
                                         <label class="focus-label">كلمة السر</label>
                                         <div id="btnToggle" class="toggle"><i id="eyeIcon" class="fa fa-eye"></i></div> 
                                     </div>
@@ -62,7 +63,7 @@
                                     <div class="login-or">
                                         <span class="or-line"></span>
                                     </div>
-                                    <div class="text-center dont-have">ليس لديك حساب ؟ <a href="register.html">أنشئ حساب</a></div>
+                                    <div class="text-center dont-have">ليس لديك حساب ؟ <a href="{{ route('register') }}">أنشئ حساب</a></div>
                                 </form>
                             </div>
                         </div>
