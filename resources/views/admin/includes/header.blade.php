@@ -5,21 +5,21 @@
     <title>85:45 - Dashboard</title>
     
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/main%20logo%203.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/admin/img/main%20logo%203.png') }}">
     
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrap-rtl.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrap-rtl.css">
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap-rtl.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap-rtl.css') }}">
     
     <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/font-awesome.min.css') }}">
     
     <!-- Feathericon CSS -->
-    <link rel="stylesheet" href="assets/css/feathericon.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/feathericon.min.css') }}">
     
-    <link rel="stylesheet" href="assets/plugins/morris/morris.css">
+    <link rel="stylesheet" href="{{ asset('assets/admin/plugins/morris/morris.css') }}">
     
     <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/style.css') }}">
     

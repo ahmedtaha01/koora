@@ -17,8 +17,8 @@ use App\Http\Controllers\Auth\PasswordController;
 |
 */
 
-Route::get('/admin', function () {
-    return 'admin view';
+Route::get('/admin/index', function () {
+    return view('admin.index');
 });
 
 
