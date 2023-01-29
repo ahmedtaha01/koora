@@ -10,13 +10,13 @@
         
             <div class="navbar-header">
                 <a href="index.html" class="navbar-brand logo">
-                    <img src="{{ asset('assets/img/main logo 3.png') }}" class="img-fluid" alt="Logo">
+                    <img src="{{ asset('assets/img/registration/main logo 3.png') }}" class="img-fluid" alt="Logo">
                 </a>
             </div>
             <div class="main-menu-wrapper">
                 <div class="menu-header">
                     <a href="index.html" class="menu-logo">
-                        <img src="{{ asset('assets/img/main logo 3.png') }}" class="img-fluid" alt="Logo">
+                        <img src="{{ asset('assets/img/registration/main logo 3.png') }}" class="img-fluid" alt="Logo">
                     </a>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                     <div class="account-content">
                         <div class="row align-items-center justify-content-center">
                             <div class="col-md-7 col-lg-6 login-left">
-                                <img src="{{ asset('assets/img/reset pass.png') }}" class="img-fluid" alt="Login Banner">	
+                                <img src="{{ asset('assets/img/registration/reset pass.png') }}" class="img-fluid" alt="Login Banner">	
                             </div>
                             <div class="col-md-12 col-lg-6 login-right">
                                 <div class="login-header">
