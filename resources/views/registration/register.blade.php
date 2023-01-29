@@ -10,13 +10,13 @@
 				
 					<div class="navbar-header">
 						<a href="index.html" class="navbar-brand logo">
-							<img src="assets/img/main%20logo%203.png" class="img-fluid" alt="Logo">
+							<img src="{{ asset('assets/img/main logo 3.png') }}" class="img-fluid" alt="Logo">
 						</a>
 					</div>
 					<div class="main-menu-wrapper">
 						<div class="menu-header">
 							<a href="index.html" class="menu-logo">
-								<img src="assets/img/main%20logo%203.png" class="img-fluid" alt="Logo">
+								<img src="assets/img/main%20logo%203.png {{ asset('assets/img/main logo 3.png') }}" class="img-fluid" alt="Logo">
 							</a>
 						</div>
                     </div>
@@ -91,7 +91,7 @@
 												</div>
 											@enderror
 											<div>
-												<a class="forgot-link" href="login.html">لديك حساب ؟</a>
+												<a class="forgot-link" href="{{ route('login') }}">لديك حساب ؟</a>
 											</div>
 											<button class="btn btn-primary btn-block btn-lg login-btn" type="submit">أنشئ حساب </button>
 											<div class="login-or">

@@ -40,24 +40,39 @@
                                 <div class="login-header">
                                     <h3>تسجيل الدخول</h3>
                                 </div>
+                                @auth
+                                    <div>
+                                        yes
+                                    </div>
+                                @endauth
                                 <form action="{{ route('login') }}" method="post">
                                     @csrf
                                     <div class="form-group form-focus">
                                         <input type="text" name="email_or_phone" class="form-control floating">
                                         <label class="focus-label">البريد الإكتروني أو رقم الهاتف</label>
                                     </div>
+                                    @error('email_or_phone')
+                                        <div class="alert alert-danger">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                      <div class="form-group form-focus">
                                         <input type="password" name="password" id="txtPassword" class="form-control floating" name="txtPassword" />
                                         <label class="focus-label">كلمة السر</label>
                                         <div id="btnToggle" class="toggle"><i id="eyeIcon" class="fa fa-eye"></i></div> 
                                     </div>
+                                    @error('password')
+                                        <div class="alert alert-danger">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                     <div class="remember">
                                         <label>
-                                         <input class="check" type="checkbox" name="remember">&nbsp;تذكرني
+                                         <input class="check" name="remember" type="checkbox">&nbsp;تذكرني
                                          </label>
                                     </div>
                                     <div>
-                                        <a class="forgot-link" href="forgot-password.html">هل نسيت كلمة السر ؟</a>
+                                        <a class="forgot-link" href="{{ route('login.forget_password') }}">هل نسيت كلمة السر ؟</a>
                                     </div>
                                     <button class="btn btn-primary btn-block btn-lg login-btn" type="submit">سجل الدخول</button>
                                     <div class="login-or">
@@ -69,7 +84,10 @@
                         </div>
                     </div>
                     <!-- /Login Tab Content -->
-                        
+                    <form action="{{ route('logout') }}" method="post">
+                        @csrf
+                        <button>logout</button>
+                    </form>
                 </div>
             </div>
 
