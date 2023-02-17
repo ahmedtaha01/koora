@@ -21,11 +21,11 @@
 </footer>
 
 <!-- jQuery -->
-<script src="{{ asset('assets/js/registration/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/registration/js/jquery.min.js') }}"></script>
 
 <!-- Bootstrap Core JS -->
-<script src="{{ asset('assets/js/registration/popper.min.js') }}"></script>
-<script src="{{ asset('assets/js/registration/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/registration/js/popper.min.js') }}"></script>
+<script src="{{ asset('assets/registration/js/bootstrap.min.js') }}"></script>
 
 <!-- Custom JS -->
-<script src="{{ asset('assets/js/registration/script.js') }}"></script>
+<script src="{{ asset('assets/registration/js/script.js') }}"></script>

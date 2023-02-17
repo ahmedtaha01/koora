@@ -10,13 +10,13 @@
 				
 					<div class="navbar-header">
 						<a href="index.html" class="navbar-brand logo">
-							<img src="{{ asset('assets/img/registration/main logo 3.png') }}" class="img-fluid" alt="Logo">
+							<img src="{{ asset('assets/registration/img/main logo 3.png') }}" class="img-fluid" alt="Logo">
 						</a>
 					</div>
 					<div class="main-menu-wrapper">
 						<div class="menu-header">
 							<a href="index.html" class="menu-logo">
-								<img src="assets/img/registration/main%20logo%203.png {{ asset('assets/img/registration/main logo 3.png') }}" class="img-fluid" alt="Logo">
+								<img src="assets/registration/img/main%20logo%203.png {{ asset('assets/registration/img/main logo 3.png') }}" class="img-fluid" alt="Logo">
 							</a>
 						</div>
                     </div>
@@ -32,7 +32,7 @@
 							<div class="account-content">
 								<div class="row align-items-center justify-content-center">
 									<div class="col-md-7 col-lg-6 login-left">
-										<img src="assets/img/registration/register.png"s class="img-fluid" alt="Doccure Register">	
+										<img src="assets/registration/img/register.png"s class="img-fluid" alt="Doccure Register">	
 									</div>
 									<div class="col-md-12 col-lg-6 login-right">
 										<div class="login-header">
