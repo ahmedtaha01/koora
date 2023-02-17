@@ -19,3 +19,12 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('assets/registration/css/style.css') }}">
     
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/registration/plugins/slider/stylesheet/font-awesome.css') }}" media="all">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/registration/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/registration/plugins/slider/stylesheet/revslider.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/registration/plugins/slider/stylesheet/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/registration/plugins/slider/stylesheet/owl.theme.css') }}">
+    

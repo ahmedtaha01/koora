@@ -5,6 +5,9 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgetpasswordController;
 use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\StadiumController;
+use App\Http\Controllers\User\MatchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +20,11 @@ use App\Http\Controllers\Auth\PasswordController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[IndexController::class,'index'])->name('index');
+
+Route::resource('stadium',StadiumController::class);
+
+Route::get('/',[MatchController::class,'index'])->name('match');
 
 Route::post('/logout',[LoginController::class,'logout'])->name('logout');
 
