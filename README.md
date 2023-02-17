@@ -1,7 +1,6 @@
 <h1>Koora App<h1>
-
-<h5>Football application app for reserving stadiums to play with your friends</h5>
-<h5>Reserving noew is made easier , no more calling with the stadium owner to look for appointements</h5>
+<h5>Football application for reserving stadiums to play with your friends</h5>
+<h5>Reserving now is made easier , no more calling with the stadium owner to look for appointements</h5>
 <h5>now you can with a button click reserve any stadium ,any time you want</h5>
     
     
