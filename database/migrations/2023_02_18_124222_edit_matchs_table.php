@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBillsTable extends Migration
+class EditMatchsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateBillsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bills', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('match_id');
+        Schema::table('matchs', function (Blueprint $table) {
+            $table->dropForeign(['bill_id']);
+            $table->dropColumn('bill_id');
             $table->string('code');
             $table->integer('money');
-            $table->dateTime('date');
-            $table->timestamps();
         });
     }
 
@@ -30,6 +28,8 @@ class CreateBillsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bills');
+        Schema::table('matchs', function (Blueprint $table) {
+            //
+        });
     }
 }

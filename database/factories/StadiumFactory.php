@@ -25,7 +25,8 @@ class StadiumFactory extends Factory
             'hour_price'    => '100',
             'size'          => '5X5',
             'join_date'     => $this->faker->date,
-            'user_id'       => $this->faker->randomElement(DB::table('users')->pluck('id')),
+            // 'user_id'       => $this->faker->randomElement(DB::table('users')->pluck('id')),
+            'user_id'       => '11',
         ];
     }
 

@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Comment;
 use Illuminate\Database\Seeder;
-use App\Models\Stadium;
 
-class StadiumSeeder extends Seeder
+class CommentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class StadiumSeeder extends Seeder
      */
     public function run()
     {
-        Stadium::factory()->times(5)->create();
+        Comment::factory()->times(60)->create();
     }
 }

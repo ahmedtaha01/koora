@@ -5,24 +5,25 @@
             <ul>
                 <li class="menu-title"> 
                     <span>الرئيسية</span>
+                    
                 </li>
-                <li class="active"> 
-                    <a href="index.html"><i class="fe fe-home"></i> <span>لوحة التحكم</span></a>
+                <li class="{{ Route::currentRouteName() == 'admin.dashboard' ? 'active' : '' }}"> 
+                    <a href="{{ route('admin.dashboard') }}"><i class="fe fe-home"></i> <span>لوحة التحكم</span></a>
                 </li>
-                <li> 
-                    <a href="appointment-list.html"><i class="fe fe-layout"></i> <span>المواعيد المحجوزة</span></a>
+                <li class="{{ Route::currentRouteName() == 'admin.match_list' ? 'active' : '' }}"> 
+                    <a href="{{ route('admin.match_list') }}"><i class="fe fe-layout"></i> <span>المواعيد المحجوزة</span></a>
                 </li>
-                <li> 
-                    <a href="pitches-list.html"><i class="fa fa-futbol-o"></i> <span>الملاعب</span></a>
+                <li class="{{ Route::currentRouteName() == 'admin.pitch_list' ? 'active' : '' }}"> 
+                    <a href="{{ route('admin.pitch_list') }}"><i class="fa fa-futbol-o"></i> <span>الملاعب</span></a>
                 </li>
-                <li> 
-                    <a href="clients-list.html"><i class="fe fe-users"></i> <span>العملاء</span></a>
+                <li class="{{ Route::currentRouteName() == 'admin.client_list' ? 'active' : '' }}"> 
+                    <a href="{{ route('admin.client_list') }}"><i class="fe fe-users"></i> <span>العملاء</span></a>
                 </li>
-                <li> 
-                    <a href="reviews.html"><i class="fe fe-star-o"></i> <span>المراجعات</span></a>
+                <li class="{{ Route::currentRouteName() == 'admin.reviews' ? 'active' : '' }}"> 
+                    <a href="{{ route('admin.reviews') }}"><i class="fe fe-star-o"></i> <span>المراجعات</span></a>
                 </li>
-                <li> 
-                    <a href="transactions-list.html"><i class="fe fe-activity"></i> <span>المعاملات</span></a>
+                <li class="{{ Route::currentRouteName() == 'admin.transactions' ? 'active' : '' }}"> 
+                    <a href="{{ route('admin.transactions') }}"><i class="fe fe-activity"></i> <span>المعاملات</span></a>
                 </li>
                 <li class="menu-title"> 
                     <span>الصفحات</span>

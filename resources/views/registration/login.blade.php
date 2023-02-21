@@ -75,6 +75,13 @@
                                         <a class="forgot-link" href="{{ route('login.forget_password') }}">هل نسيت كلمة السر ؟</a>
                                     </div>
                                     <button class="btn btn-primary btn-block btn-lg login-btn" type="submit">سجل الدخول</button>
+                                    
+                                        @if (session()->has('error'))
+                                        <div class="text-center alert alert-danger mt-2">
+                                            {{ session()->get('error') }}
+                                        </div>
+                                        @endif
+                                    
                                     <div class="login-or">
                                         <span class="or-line"></span>
                                     </div>
@@ -84,10 +91,6 @@
                         </div>
                     </div>
                     <!-- /Login Tab Content -->
-                    <form action="{{ route('logout') }}" method="post">
-                        @csrf
-                        <button>logout</button>
-                    </form>
                 </div>
             </div>
 

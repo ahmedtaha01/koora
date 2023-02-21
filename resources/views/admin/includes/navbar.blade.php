@@ -3,11 +3,8 @@
     
     <!-- Logo -->
     <div class="header-right">
-        <a href="index.html" class="logo">
+        <a href="{{ route('admin.dashboard') }}" class="logo">
             <img src="{{ asset('assets/admin/img/main%20logo5.png') }}" alt="Logo">
-        </a>
-        <a href="index.html" class="logo logo-small">
-            <img src="{{ asset('assets/admin/img/main%20logo%203.png') }}" alt="Logo" width="30" height="30">
         </a>
     </div>
     <!-- /Logo -->
@@ -122,7 +119,7 @@
                 </div>
                 <a class="dropdown-item" href="profile.html">ملفي الشخصي</a>
                 <a class="dropdown-item" href="lock-screen.html">قفل الشاشة</a>
-                <a class="dropdown-item" href="login.html">تسجيل خروج</a>
+                <a class="dropdown-item" href="{{ route('logout') }}">تسجيل خروج</a>
             </div>
         </li>
         <!-- /User Menu -->

@@ -23,18 +23,12 @@ class LoginController extends Controller
         if (Auth::attempt([$field => $request->email_or_phone , 'password' => $request->password]
         ,$request->remember ? true : false)){
             $request->session()->regenerate();
-            return 'user found';
-            // return redirect()->intended('dashboard');
+            if(auth()->user()->role_id == '21'){
+                return redirect()->route('admin.dashboard');
+            }
         }
         
-        // return 'home';
+        return redirect()->route('login')->with('error','User is not found');
     }
-
-    public function logout(){
-        Auth::logout();
-
-        return redirect()->route('login');
-    }
-
     
 }

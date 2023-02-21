@@ -1,47 +1,9 @@
-@extends('registration.layouts.app')
+@extends('index.layouts.app')
 
 
 @section('content')
 <div class="main-wrapper">
-		
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar navbar-expand-lg header-nav">
-            <div class="navbar-header">
-                <a id="mobile_btn" href="javascript:void(0);">
-                    <span class="bar-icon">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </span>
-                </a>
-                <a href="index.html" class="navbar-brand logo">
-                    <img src="{{ asset('assets/registration/img/main%20logo5.png') }}" class="img-fluid" alt="Logo">
-                </a>
-            </div>
-            <div class="main-menu-wrapper">
-                <div class="menu-header">
-                    <a href="index.html" class="menu-logo">
-                        <img src="{{ asset('assets/registration/img/main%20logo5.png') }}" class="img-fluid" alt="Logo">
-                    </a>
-                    <a id="menu_close" class="menu-close" href="javascript:void(0);">
-                        <i class="fas fa-times"></i>
-                    </a>
-                </div>
-                <ul class="main-nav">
-                    <li class="nav-item active">
-                        <a class="main-nav header-home"href="index.html">الرئيسية</a>
-                    </li>
-                </ul>			 
-            </div>		 
-            <ul class="nav header-navbar-rht">
-                <li class="nav-item">
-                    <a class="nav-link header-login" href="login.html">سجل دخول/أنشئ حساب</a>
-                </li>
-                
-            </ul>
-        </nav>
-    </header>
+	
     <!-- /Header -->
     
     <!-- Home Banner -->
@@ -59,7 +21,7 @@
                                   <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'><span>85:45</span> </div>
                                   <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'><span style="font-weight:normal; display:block">موقع لحجز الملاعب</span><br>بكل سهولة</div><br>
                                   <div class='tp-caption Title sft  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1450' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>أحجز ملعبك الأن</div>
-                                  <div class='tp-caption sfb  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1500' data-            easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href="pitches-list.html" class="buy-btn">احجز موعدًا</a> </div>
+                                  <div class='tp-caption sfb  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1500' data-            easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href="{{ route('pitch_list') }}" class="buy-btn">احجز موعدًا</a> </div>
                                 </div>
                               </div>
                             </div>
@@ -203,7 +165,7 @@
                         <p>أختر ملعبك المفضل والمساحة المفضلة وبالموقع القريب منك بسهولة  </p>
                         <p>بالأسعار التي تناسبك</p>
                         <br>
-                        <a href="pitches-list.html">أعرف المزيد</a>
+                        <a href="{{ route('pitch_list') }}">أعرف المزيد</a>
                     </div>
                 </div>
                 <div class="col-lg-8">

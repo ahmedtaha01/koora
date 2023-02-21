@@ -90,6 +90,10 @@
 													<span>{{ $message }}</span>
 												</div>
 											@enderror
+											<label for="html" class="focus-label">لديك ملعب</label>
+											<input type="checkbox" name="owner">
+											
+											
 											<div>
 												<a class="forgot-link" href="{{ route('login') }}">لديك حساب ؟</a>
 											</div>
@@ -97,6 +101,8 @@
 											<div class="login-or">
 												<span class="or-line"></span>
 											</div>
+											
+											
 										</form>
 									</div>
 								</div>

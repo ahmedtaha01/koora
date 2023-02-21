@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgetpasswordController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\StadiumController;
@@ -22,13 +23,15 @@ use App\Http\Controllers\User\MatchController;
 
 Route::get('/',[IndexController::class,'index'])->name('index');
 
+Route::get('/pitchs_list',[IndexController::class,'pitch_list'])->name('pitch_list');
+
 Route::resource('stadium',StadiumController::class);
 
-Route::get('/',[MatchController::class,'index'])->name('match');
+Route::get('/match',[MatchController::class,'index'])->name('match');
 
-Route::post('/logout',[LoginController::class,'logout'])->name('logout');
+Route::get('/logout',[LogoutController::class,'logout'])->middleware('auth')->name('logout');
 
-Route::prefix('/register')->name('register')->group(function(){
+Route::prefix('/register')->middleware('guest')->name('register')->group(function(){
     Route::get('',[RegisterController::class,'index']);
 
     Route::post('',[RegisterController::class,'store']);

@@ -3,8 +3,6 @@
 @section('content')
 <div class="main-wrapper">
 		
-    
-    
     <!-- Page Wrapper -->
     <div class="page-wrapper">
     
@@ -32,7 +30,7 @@
                                     <i class="fa fa-futbol-o"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <h3>168</h3>
+                                    <h3>{{ $number_of_stadiums }}</h3>
                                 </div>
                             </div>
                             <div class="dash-widget-info">
@@ -52,7 +50,7 @@
                                     <i class="fe fe-users"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <h3>487</h3>
+                                    <h3>{{ $number_of_players }}</h3>
                                 </div>
                             </div>
                             <div class="dash-widget-info">
@@ -73,7 +71,7 @@
                                     <i class="fe fe-layout"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <h3>50</h3>
+                                    <h3>{{ $number_of_matches }}</h3>
                                 </div>
                             </div>
                             <div class="dash-widget-info">
@@ -94,7 +92,7 @@
                                     <i class="fe fe-money"></i>
                                 </span>
                                 <div class="dash-count">
-                                    <h3>5000 EGP</h3>
+                                    <h3>{{ $whole_profits }} EGP</h3>
                                 </div>
                             </div>
                             <div class="dash-widget-info">
@@ -158,15 +156,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @forelse ($stadiums as $stadium)
                                         <tr>
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/admin/profiles/user.png" alt="User Image"></a>
-                                                    <a href="profile.html">ملعب 1</a>
+                                                    <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
+                                                    <a href="profile.html">{{ $stadium->name }}</a>
                                                 </h2>
                                             </td>
-                                            <td>5x5</td>
-                                            <td>EGP3200.00</td>
+                                            <td>{{ $stadium->size }}</td>
+                                            <td>EGP {{ $stadium->matchs->sum('money') }}</td>
                                             <td>
                                                 <i class="fe fe-star text-warning"></i>
                                                 <i class="fe fe-star text-warning"></i>
@@ -175,6 +174,16 @@
                                                 <i class="fe fe-star-o text-secondary"></i>
                                             </td>
                                         </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="4">
+                                                <div class="alert alert-warning">
+                                                    No Stadiums
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @endforelse
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -202,17 +211,28 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @forelse ($players_info as $player)
                                         <tr>
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/admin/profiles/user.png" alt="User Image"></a>
-                                                    <a href="profile.html">عميل 1</a>
+                                                    <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
+                                                    <a href="profile.html">{{ $player->name }}</a>
                                                 </h2>
                                             </td>
-                                            <td>01009547862</td>
-                                            <td>user@user.com</td>
-                                            <td class="text-right">EGP300.00</td>
+                                            <td>{{ $player->phone }}</td>
+                                            <td>{{ $player->email }}</td>
+                                            <td class="text-right">EGP{{ $player->matchs->sum('money') }}</td>
                                         </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="4">
+                                                <div class="alert alert-warning">
+                                                    No Clients
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @endforelse
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -244,31 +264,45 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @forelse ($matchs as $match)
                                         <tr>
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/admin/profiles/user.png" alt="User Image"></a>
-                                                    <a href="profile.html">ملعب 5</a>
+                                                    <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
+                                                    <a href="profile.html">{{ $match->stadium_name }}</a>
                                                 </h2>
                                             </td>
-                                            <td>5x5</td>
+                                            <td>{{ $match->size }}</td>
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="assets/img/admin/profiles/user.png" alt="User Image"></a>
-                                                    <a href="profile.html">عميل 2 </a>
+                                                    <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
+                                                    <a href="profile.html">{{ $match->user_name }}</a>
                                                 </h2>
                                             </td>
-                                            <td>15 Dec 2021 <span class="text-primary d-block">11.00 AM - 01.00 AM</span></td>
+                                            @php
+                                                $data = explode(' ',$match->date);
+                                                $data[2] = date('H:i:s', strtotime($data[1]. '-'.$match->hours));
+                                            @endphp
+                                            <td>{{ $data[0] }} <span class="text-primary d-block">{{ $data[1] }}-{{ $data[2] }}</span></td>
                                             <td>
                                                 <div class="status-toggle">
-                                                    <input type="checkbox" id="status_1" class="check" checked>
+                                                    <input type="checkbox" id="status_1" class="check" {{ $match->status ? 'checked' : '' }}>
                                                     <label for="status_1" class="checktoggle">checkbox</label>
                                                 </div>
                                             </td>
                                             <td class="text-right">
-                                                EGP140.00
+                                                EGP{{ $match->money }}
                                             </td>
                                         </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="6">
+                                                <div class="alert alert-warning">
+                                                    No Matchs
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>

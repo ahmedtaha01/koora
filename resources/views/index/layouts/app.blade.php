@@ -2,13 +2,13 @@
 <html lang="ar">
 	
 <head>
-	@include('registration.includes.header')
+	@include('index.includes.header')
 </head>
 	<body class="account-page">
-		
+	@include('index.includes.navbar')
 	@yield('content')
    
 			
-	@include('registration.includes.footer')	
+	@include('index.includes.footer')	
 	</body>
 </html>

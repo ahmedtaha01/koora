@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Stadium;
+use App\Models\AMatch;
 
 class User extends Authenticatable
 {
@@ -22,6 +24,8 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
+        'code',
+        'role_id',
     ];
 
     /**
@@ -42,4 +46,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function stadiums(){
+        return $this->hasMany(Stadium::class);
+    }
+
+    public function matchs(){
+        return $this->hasMany(AMatch::class);
+    }
 }

@@ -16,4 +16,9 @@ class IndexController extends Controller
     public function pitch(){
         return view('pitch-profile');
     }
+
+    public function pitch_list(){
+        $stadiums = DB::table('stadiums')->paginate(5);
+        return view('pitches-list',compact('stadiums'));
+    }
 }
