@@ -1,14 +1,14 @@
-#koora app
-
-
-
-
-
-
-
-
-
-
+<h1>Koora App<h1>
+<h5>Football application for reserving stadiums to play with your friends</h5>
+<h5>Reserving now is made easier , no more calling with the stadium owner to look for appointements</h5>
+<h5>now you can with a button click reserve any stadium ,any time you want</h5>
+    
+    
+    
+    
+    
+    
+    
 --------------------------------------------------------------------------------------------------------------
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
