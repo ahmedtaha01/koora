@@ -1,7 +1,7 @@
 <h1>Koora App<h1>
 <h5>Football application for reserving stadiums to play with your friends</h5>
-<h5>Reserving now is made easier , no more calling with the stadium owner to look for appointements</h5>
-<h5>now you can with a button click reserve any stadium ,any time you want</h5>
+<h5>you can register as a player or stadium owner</h5>
+<h5>there is admin dashboard to track your stadiums statistics</h5>
     
     
     
