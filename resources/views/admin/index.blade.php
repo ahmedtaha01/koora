@@ -165,7 +165,7 @@
                                                 </h2>
                                             </td>
                                             <td>{{ $stadium->size }}</td>
-                                            <td>EGP {{ $stadium->matchs->sum('money') }}</td>
+                                            <td>EGP {{ $stadium->reservations->sum('money') }}</td>
                                             <td>
                                                 <i class="fe fe-star text-warning"></i>
                                                 <i class="fe fe-star text-warning"></i>
@@ -221,7 +221,7 @@
                                             </td>
                                             <td>{{ $player->phone }}</td>
                                             <td>{{ $player->email }}</td>
-                                            <td class="text-right">EGP{{ $player->matchs->sum('money') }}</td>
+                                            <td class="text-right">EGP{{ $player->reservations->sum('money') }}</td>
                                         </tr>
                                         @empty
                                         <tr>

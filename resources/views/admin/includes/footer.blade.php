@@ -13,3 +13,20 @@
     
     <!-- Custom JS -->
     <script  src="{{ asset('assets/admin/js/script.js') }}"></script>
+
+    <script>
+        function updateStatus(id){
+                $.ajax({
+                url: 'http://127.0.0.1:8000/admin/reservationUpdateService/'+id,
+                method: 'GET',
+                dataType: 'JSON',
+                success:function(response)
+                {
+                    console.log('success');
+                },
+                error: function(response) {
+                    console.log('failed');
+                }
+            });
+        }
+    </script>

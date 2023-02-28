@@ -53,7 +53,7 @@
 
 												<td>{{ $stadium->hour_price }}</td>
 												
-												<td>EGP {{ $stadium->matchs->sum('money') }}</td>
+												<td>EGP {{ $stadium->reservations->sum('money') }}</td>
 												
 											</tr>
 											@empty

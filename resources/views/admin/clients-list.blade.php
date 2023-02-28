@@ -50,7 +50,7 @@
 										<td>{{ $client->email }}</td>
 										<td>{{ $client->phone }}</td>
 										<td>{{ $client->updated_at }}</td>
-										<td>EGP {{ $client->matchs->sum('money') }}</td>
+										<td>EGP {{ $client->reservations->sum('money') }}</td>
 									</tr>
 									@empty
 									<tr>

@@ -37,41 +37,43 @@
 										</tr>
 									</thead>
 									<tbody>
-										@forelse ($matchs as $match)
+										@forelse ($reservations as $reservation)
 										<tr>
 											<td>
 												<h2 class="table-avatar">
 													<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/Admin/img/profiles/user.png') }}" alt="User Image"></a>
-													<a href="profile.html">{{ $match->stadium_name }}</a>
+													<a href="profile.html">{{ $reservation->stadium_name }}</a>
 												</h2>
 											</td>
 											<td>5x5</td>
 											<td>
 												<h2 class="table-avatar">
 													<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/Admin/img/profiles/user.png') }}" alt="User Image"></a>
-													<a href="profile.html">{{ $match->user_name }}</a>
+													<a href="profile.html">{{ $reservation->user_name }}</a>
 												</h2>
 											</td>
 											@php
-                                                $data = explode(' ',$match->date);
-                                                $data[2] = date('H:i:s', strtotime($data[1]. '-'.$match->hours));
+                                                $data = explode(' ',$reservation->date);
+                                                $data[2] = date('H:i:s', strtotime($data[1]. '-'.$reservation->hours));
                                             @endphp
                                             <td>{{ $data[0] }} <span class="text-primary d-block">{{ $data[1] }}-{{ $data[2] }}</span></td>
 											<td>
-												<div class="status-toggle">
-													<input type="checkbox" id="status_1" class="check" {{ $match->status ? 'checked' : '' }}>
-													<label for="status_1" class="checktoggle">checkbox</label>
-												</div>
+												<form>
+													<div class="status-toggle">
+														<input type="checkbox" onclick="updateStatus({{ $reservation->id }})"  id="status_{{ $reservation->id }}" class="check" {{ $reservation->status ? 'checked' : '' }}>
+														<label for="status_{{ $reservation->id }}" class="checktoggle">checkbox</label>
+													</div>
+												</form>				
 											</td>
 											<td>
-												EGP{{ $match->money }}
+												EGP{{ $reservation->money }}
 											</td>
 										</tr>
 										@empty
 										<tr>
                                             <td colspan="6">
                                                 <div class="alert alert-warning">
-                                                    No Matchs
+                                                    No reservations
                                                 </div>
                                             </td>
                                         </tr>

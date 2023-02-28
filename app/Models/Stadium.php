@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Database\Factories\StadiumFactory;
 use App\Models\Service;
-use App\Models\AMatch;
+
 
 class Stadium extends Model
 {
@@ -24,7 +24,7 @@ class Stadium extends Model
         return $this->belongsToMany(Service::class);
     }
 
-    public function matchs(){
-        return $this->hasMany(AMatch::class);
+    public function reservations(){
+        return $this->hasMany(Reservation::class);
     }
 }

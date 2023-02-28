@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\ReservationController;
+use App\Http\Controllers\Admin\ReservationUpdateStatusController;
+use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\StadiumController;
+use App\Http\Controllers\Admin\TransactionController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\ForgetpasswordController;
-use App\Http\Controllers\Auth\PasswordController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,18 +22,19 @@ use App\Http\Controllers\Auth\PasswordController;
 */
 
 
-Route::prefix('admin')->namespace('admin')->name('admin')->middleware(['auth','is_admin'])->group(function(){
-    Route::get('dashboard',[AdminController::class,'index'])->name('.dashboard');
+Route::prefix('admin')->name('admin.')->middleware(['auth','is_admin'])->group(function(){
+    Route::get('dashboard',[AdminController::class,'index'])->name('dashboard');
 
-    Route::get('match_list',[AdminController::class,'matchList'])->name('.match_list');
+    Route::resource('reservations',ReservationController::class);
+    Route::get('reservationUpdateService/{id}',ReservationUpdateStatusController::class);
 
-    Route::get('pitch_list',[AdminController::class,'pitchList'])->name('.pitch_list');
+    Route::resource('stadiums',StadiumController::class);
 
-    Route::get('client_list',[AdminController::class,'clientList'])->name('.client_list');
+    Route::resource('clients',ClientController::class);
 
-    Route::get('reviews',[AdminController::class,'reviews'])->name('.reviews');
+    Route::resource('reviews',ReviewController::class);
 
-    Route::get('transactions',[AdminController::class,'transaction'])->name('.transactions');
+    Route::resource('transactions',TransactionController::class);
 });
 
 

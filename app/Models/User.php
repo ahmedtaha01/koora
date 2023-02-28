@@ -48,11 +48,11 @@ class User extends Authenticatable
     ];
 
 
-    public function stadiums(){
+    public function stadiums(){ // only owners
         return $this->hasMany(Stadium::class);
     }
 
-    public function matchs(){
-        return $this->hasMany(AMatch::class);
+    public function reservations(){
+        return $this->hasMany(Reservation::class);
     }
 }
