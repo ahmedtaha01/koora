@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CreateReviewRequest;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -43,9 +45,14 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateReviewRequest $request)
     {
-        //
+        Comment::create([
+            'comment'        => $request->review,
+            'user_id'       => Auth::user()->id,
+            'stadium_id'    => $request->stadium_id,
+        ]);
+        return redirect()->route('admin.stadiums.show',$request->stadium_id);
     }
 
     /**

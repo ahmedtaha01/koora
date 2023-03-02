@@ -48,7 +48,7 @@ class StadiumController extends Controller
      */
     public function show(Stadium $stadium)
     {
-        //
+        return view('admin.pitch-profile',compact('stadium'));
     }
 
     /**

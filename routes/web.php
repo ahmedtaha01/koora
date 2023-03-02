@@ -21,7 +21,7 @@ use App\Http\Controllers\User\MatchController;
 |
 */
 
-Route::get('/',[IndexController::class,'index'])->name('index');
+Route::get('/',[IndexController::class,'index'])->middleware('guest')->name('index');
 
 Route::get('/pitchs_list',[IndexController::class,'pitch_list'])->name('pitch_list');
 
@@ -37,7 +37,7 @@ Route::prefix('/register')->middleware('guest')->name('register')->group(functio
     Route::post('',[RegisterController::class,'store']);
 });
 
-Route::prefix('/login')->name('login')->group(function(){
+Route::prefix('/login')->middleware('guest')->name('login')->group(function(){
     Route::get('',[LoginController::class,'index']);
 
     Route::post('',[LoginController::class,'login']);

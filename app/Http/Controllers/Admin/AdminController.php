@@ -29,12 +29,12 @@ class AdminController extends Controller
         $players = Reservation::whereIn('stadium_id',$list_of_stadiums)->pluck('user_id')->toArray();
         $players_info = User::findMany($players);
 
-        $matchs = DB::table('matchs')
+        $reservations = DB::table('matchs')
         ->join('users','user_id','=','users.id')
         ->join('stadiums','stadium_id','=','stadiums.id')
         ->whereIn('stadium_id',$list_of_stadiums)
-        ->get(['stadiums.name as stadium_name','stadiums.size','users.name as user_name','matchs.date','matchs.status'
-            ,'matchs.money','matchs.hours']);
+        ->get(['stadiums.name as stadium_name','stadiums.size','stadiums.id as stadium_id','users.name as user_name','matchs.date','matchs.status'
+            ,'matchs.money','matchs.hours','matchs.id']);
         
         
         return view('admin.index',
@@ -45,7 +45,7 @@ class AdminController extends Controller
                 'whole_profits'         => $whole_profits,
                 'stadiums'              => $stadiums,
                 'players_info'          => $players_info,
-                'matchs'                => $matchs,
+                'reservations'          => $reservations,
             ]
         );
     }

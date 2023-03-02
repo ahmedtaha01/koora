@@ -28,13 +28,19 @@
                         <a class="main-nav header-home"href="{{ route('index') }}">الرئيسية</a>
                     </li>
                 </ul>			 
-            </div>		 
+            </div>	
             <ul class="nav header-navbar-rht">
-                <li class="nav-item">
-                    <a class="nav-link header-login" href="{{ route('login') }}">سجل دخول/أنشئ حساب</a>
-                </li>
+                @if (! Auth::check())
+                    <li class="nav-item">
+                        <a class="nav-link header-login" href="{{ route('login') }}">سجل دخول/أنشئ حساب</a>
+                    </li>
+                @endif
                 
-            </ul>
+            </ul>	
+            
+            
+            
+            
         </nav>
     </header>
     <!-- Breadcrumb -->

@@ -58,12 +58,10 @@
                                             @endphp
                                             <td>{{ $data[0] }} <span class="text-primary d-block">{{ $data[1] }}-{{ $data[2] }}</span></td>
 											<td>
-												<form>
-													<div class="status-toggle">
-														<input type="checkbox" onclick="updateStatus({{ $reservation->id }})"  id="status_{{ $reservation->id }}" class="check" {{ $reservation->status ? 'checked' : '' }}>
-														<label for="status_{{ $reservation->id }}" class="checktoggle">checkbox</label>
-													</div>
-												</form>				
+												<div class="status-toggle">
+													<input type="checkbox" onclick="updateStatus({{ $reservation->id }})"  id="status_{{ $reservation->id }}" class="check" {{ $reservation->status ? 'checked' : '' }}>
+													<label for="status_{{ $reservation->id }}" class="checktoggle">checkbox</label>
+												</div>		
 											</td>
 											<td>
 												EGP{{ $reservation->money }}
