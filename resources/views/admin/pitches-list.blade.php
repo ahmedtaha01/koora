@@ -41,8 +41,8 @@
 											<tr>
 												<td>
 													<h2 class="table-avatar">
-														<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
-														<a href="profile.html">{{ $stadium->name }}</a>
+														<a href="{{ route('admin.stadiums.show',$stadium->id) }}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
+														<a href="{{ route('admin.stadiums.show',$stadium->id) }}">{{ $stadium->name }}</a>
 													</h2>
 												</td>
 												<td>{{ $stadium->size }}</td>

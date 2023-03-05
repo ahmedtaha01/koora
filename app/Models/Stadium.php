@@ -31,4 +31,8 @@ class Stadium extends Model
     public function reviews(){
         return $this->hasMany(Comment::class);
     }
+
+    public function rates(){
+        return $this->hasMany(Rate::class);
+    }
 }

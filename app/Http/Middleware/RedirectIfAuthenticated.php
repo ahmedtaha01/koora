@@ -26,11 +26,11 @@ class RedirectIfAuthenticated
         //         return redirect(RouteServiceProvider::HOME);
         //     }
         // }
-        if(auth()->check()){
+        if(Auth::check()){
             if(auth()->user()->role_id == '21'){
                 return redirect()->route('admin.dashboard');
             } else {
-                return 'home';
+                return $next($request);
             }
         }
 

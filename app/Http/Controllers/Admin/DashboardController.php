@@ -9,16 +9,21 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
-class AdminController extends Controller
+class DashboardController extends Controller
 {
-    public function index(){
+    /**
+     * Handle the incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function __invoke()
+    {
         $list_of_stadiums = Auth::user()->stadiums->pluck('id')->toArray();
         $number_of_stadiums = count(Auth::user()->stadiums);
         
         $number_of_players = Reservation::distinct()->whereIn('stadium_id',$list_of_stadiums)->count('user_id');
         // dd($number_of_players);
-
-        
 
         $whole_profits = Reservation::whereIn('stadium_id',$list_of_stadiums)->sum('money');
 
@@ -49,5 +54,4 @@ class AdminController extends Controller
             ]
         );
     }
-
 }

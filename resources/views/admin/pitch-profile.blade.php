@@ -407,39 +407,42 @@
 											<h4>أكتب رأيك  <strong>ل {{ $stadium->name }}</strong></h4>
 											
 											<!-- Write Review Form -->
-											<form>
+											<form action="{{ route('admin.reviews.store') }}" method="post">
+												@csrf
 												<div class="form-group">
 													<label>قيم</label>
 													<div class="star-rating">
 														
-														<input id="star-1" type="radio" name="rating" value="1">
-														<label for="star-1" title="ممتاز">
-															<i class="active fa fa-star"></i>
-														</label>
-														<input id="star-2" type="radio" name="rating" value="2">
-														<label for="star-2" title="جيد جداً">
-															<i class="active fa fa-star"></i>
-														</label>
-														<input id="star-3" type="radio" name="rating" value="3">
-														<label for="star-3" title="جيد">
+														<input id="star-5" type="radio" name="rating" value="5">
+														<label for="star-5" title="سئ">
 															<i class="active fa fa-star"></i>
 														</label>
 														<input id="star-4" type="radio" name="rating" value="4">
 														<label for="star-4" title="مقبول">
 															<i class="active fa fa-star"></i>
 														</label>
-														<input id="star-5" type="radio" name="rating" value="5">
-														<label for="star-5" title="سئ">
+														<input id="star-3" type="radio" name="rating" value="3">
+														<label for="star-3" title="جيد">
 															<i class="active fa fa-star"></i>
 														</label>
-														
-														
-														
+														<input id="star-2" type="radio" name="rating" value="2">
+														<label for="star-2" title="جيد جداً">
+															<i class="active fa fa-star"></i>
+														</label>
+														<input id="star-1" type="radio" name="rating" value="1">
+														<label for="star-1" title="ممتاز">
+															<i class="active fa fa-star"></i>
+														</label>
 													</div>
+													@error('rating')
+														<div class="alert alert-danger text-center">
+															{{ $message }}
+														</div>
+													@enderror
 												</div>
-											</form>
-											<form action="{{ route('admin.reviews.store') }}" method="post">
-												@csrf
+											
+											
+												
 												<div class="form-group">
 													<label>تقييمك</label>
 													<textarea id="review_desc" name="review" maxlength="100" class="form-control"></textarea>
@@ -447,9 +450,9 @@
 												  <div class="d-flex justify-content-between mt-3"><small class="text-muted"><span id="chars">100</span> الأحرف المتبقية</small></div>
 												</div>
 												@error('review')
-												<div class="alert alert-danger text-center">
-													{{ $message }}
-												</div>
+													<div class="alert alert-danger text-center">
+														{{ $message }}
+													</div>
 												@enderror
 												<hr>
 												<div class="submit-section">

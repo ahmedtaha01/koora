@@ -46,8 +46,8 @@
 										</td>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
-												<a href="profile.html">{{ $review->stadium_name }}</a>
+												<a href="{{ route('admin.stadiums.show',$review->stadium_id) }}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
+												<a href="{{ route('admin.stadiums.show',$review->stadium_id) }}">{{ $review->stadium_name }}</a>
 											</h2>
 										</td>
 										
@@ -67,12 +67,13 @@
 										@endphp
 											<td>{{ $data[0] }} <br><small>{{ $data[1] }}</small></td>
 										<td class="text-right">
-											<div class="actions">
-												<a class="btn btn-sm bg-danger-light" data-toggle="modal" href="#delete_modal">
-													<i class="fe fe-trash"></i> حذف
-												</a>
-												
-											</div>
+											
+										<div class="actions">
+											<a class="btn btn-sm bg-danger-light" onclick="deleteReview({{ $review->id }})" data-toggle="modal" href="#delete_modal">
+												<i class="fe fe-trash"></i> حذف
+											</a>
+										</div>
+											
 										</td>
 									</tr>
 									@empty
@@ -108,10 +109,11 @@
 			</div>-->
 			<div class="modal-body">
 				<div class="form-content p-2">
-					<h4 class="modal-title">حذف</h4>
-					<p class="mb-4">هل أنت متأكد من أنك تريد الحذف؟</p>
-					<button type="button" class="btn btn-primary">حفظ</button>
-					<button type="button" class="btn btn-danger" data-dismiss="modal">إغلاق</button>
+						<h4 class="modal-title">حذف</h4>
+						<p class="mb-4">هل أنت متأكد من أنك تريد الحذف؟</p>
+						<input id="review_id" name="id" hidden>
+						<button type="submit" class="btn btn-primary" onclick="deleteReview2()">حذف</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">إغلاق</button>
 				</div>
 			</div>
 		</div>

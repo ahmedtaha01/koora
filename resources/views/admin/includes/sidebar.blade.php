@@ -22,9 +22,6 @@
                 <li class="{{ Route::currentRouteName() == 'admin.reviews.index' ? 'active' : '' }}"> 
                     <a href="{{ route('admin.reviews.index') }}"><i class="fe fe-star-o"></i> <span>المراجعات</span></a>
                 </li>
-                <li class="{{ Route::currentRouteName() == 'admin.transactions.index' ? 'active' : '' }}"> 
-                    <a href="{{ route('admin.transactions.index') }}"><i class="fe fe-activity"></i> <span>المعاملات</span></a>
-                </li>
                 <li class="menu-title"> 
                     <span>الصفحات</span>
                 </li>
@@ -40,7 +37,7 @@
                      </ul>
                 </li>
                 <li> 
-                    <a href="profile.html"><i class="fe fe-user-plus"></i> <span>الملف الشخصي</span></a>
+                    <a href="{{ route('admin.profile.index') }}"><i class="fe fe-user-plus"></i> <span>الملف الشخصي</span></a>
                 </li>
                 <li class="submenu">
                     <a href="#"><i class="fe fe-lock"></i> <span> المصادقة </span> <span class="menu-arrow"></span></a>
