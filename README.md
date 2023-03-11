@@ -1,7 +1,7 @@
 <h1>Koora App<h1>
 <h5>Football application for reserving stadiums to play with your friends</h5>
 <h5>you can register as a player or stadium owner</h5>
-<h5>there is admin dashboard to track your stadiums statistics</h5>
+<h5>there is admin dashboard for stadium owners to track the statistics of their stadiums</h5>
     
     
     
