@@ -6,6 +6,7 @@ use App\Models\Comment;
 use App\Models\Reservation;
 use App\Models\Stadium;
 use App\Models\User;
+use App\Policies\Admin\AdminPolicy;
 use App\Policies\Admin\ReservationPolicy;
 use App\Policies\Admin\ReviewPolicy;
 use App\Policies\Admin\StadiumPolicy;
@@ -22,8 +23,8 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
         // Comment::class => ReviewPolicy::class,
-        Stadium::class      =>  StadiumPolicy::class,
-        Reservation::class  =>  ReservationPolicy::class,
+        Stadium::class      => StadiumPolicy::class,
+        Reservation::class  => ReservationPolicy::class,
     ];
 
     /**

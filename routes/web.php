@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgetpasswordController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\Auth\RegisterOwnerController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\StadiumController;
 use App\Http\Controllers\User\MatchController;
@@ -35,6 +36,10 @@ Route::prefix('/register')->middleware('guest')->name('register')->group(functio
     Route::get('',[RegisterController::class,'index']);
 
     Route::post('',[RegisterController::class,'store']);
+
+    Route::get('/stadium_owner',[RegisterOwnerController::class,'index'])->name('.owner');
+
+    Route::post('/stadium_owner',[RegisterOwnerController::class,'store'])->name('.owner');
 });
 
 Route::prefix('/login')->middleware('guest')->name('login')->group(function(){

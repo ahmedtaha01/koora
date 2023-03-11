@@ -42,7 +42,7 @@ class StadiumPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->role == '21';
     }
 
     /**

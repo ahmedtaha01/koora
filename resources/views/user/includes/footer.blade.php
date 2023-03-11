@@ -30,10 +30,6 @@
 <!-- Custom JS -->
 <script src="{{ asset('assets/registration/js/script.js') }}"></script>
 <script src="{{ asset('assets/registration/js/jquery.min.js') }}"></script>
-		
-<!-- Bootstrap Core JS -->
-<script src="{{ asset('assets/registration/js/popper.min.js') }}"></script>
-<script src="{{ asset('assets/registration/js/bootstrap.min.js') }}"></script>
 
 <!-- Slick JS -->
 <script src="{{ asset('assets/registration/js/slick.js') }}"></script>

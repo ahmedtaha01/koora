@@ -37,9 +37,11 @@ class DashboardController extends Controller
         $reservations = DB::table('matchs')
         ->join('users','user_id','=','users.id')
         ->join('stadiums','stadium_id','=','stadiums.id')
-        ->whereIn('stadium_id',$list_of_stadiums)
-        ->get(['stadiums.name as stadium_name','stadiums.size','stadiums.id as stadium_id','users.name as user_name','matchs.date','matchs.status'
-            ,'matchs.money','matchs.hours','matchs.id']);
+        ->whereIn('stadium_id',$list_of_stadiums)->where('deleted_at',null)
+        ->get(['stadiums.name as stadium_name','stadiums.size','stadiums.id as stadium_id',
+        'stadiums.image as stadium_image',
+        'users.name as user_name',
+        'matchs.date','matchs.status','matchs.money','matchs.hours','matchs.id']);
         
         
         return view('admin.index',

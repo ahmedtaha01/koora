@@ -13,6 +13,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <h3 class="page-title">أهلا بك!</h3>
+                        {{ session()->get('lockscreen') }}
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item active">لوحة التحكم</li>
                         </ul>
@@ -160,18 +161,24 @@
                                         <tr>
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="{{ route('admin.stadiums.show',$stadium->id) }}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
+                                                    <a href="{{ route('admin.stadiums.show',$stadium->id) }}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ url('storage/images/stadiums/'.$stadium->image) }}" alt="User Image"></a>
                                                     <a href="{{ route('admin.stadiums.show',$stadium->id) }}">{{ $stadium->name }}</a>
                                                 </h2>
                                             </td>
                                             <td>{{ $stadium->size }}</td>
                                             <td>EGP {{ $stadium->reservations->sum('money') }}</td>
                                             <td>
-                                                <i class="fe fe-star text-warning"></i>
-                                                <i class="fe fe-star text-warning"></i>
-                                                <i class="fe fe-star text-warning"></i>
-                                                <i class="fe fe-star text-warning"></i>
-                                                <i class="fe fe-star-o text-secondary"></i>
+                                                @php
+                                                    $i=0;
+                                                    while($i < floor($stadium->rates->avg('rate'))){
+                                                        echo '<i class="fe fe-star text-warning"></i>';
+                                                        $i++;
+                                                    }
+                                                    while($i < 5){
+                                                        echo'<i class="fe fe-star-o text-secondary"></i>';
+                                                        $i++;
+                                                    }
+                                                @endphp
                                             </td>
                                         </tr>
                                         @empty
@@ -268,7 +275,7 @@
                                         <tr>
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="{{ route('admin.stadiums.show',$reservation->stadium_id) }}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
+                                                    <a href="{{ route('admin.stadiums.show',$reservation->stadium_id) }}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ url('storage/images/stadiums').'/'.$reservation->stadium_image }}" alt="User Image"></a>
                                                     <a href="{{ route('admin.stadiums.show',$reservation->stadium_id) }}">{{ $reservation->stadium_name }}</a>
                                                 </h2>
                                             </td>

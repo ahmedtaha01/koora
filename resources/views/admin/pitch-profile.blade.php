@@ -12,31 +12,43 @@
 								<div class="pitch-widget">
 									<div class="pitch-info-left">
 										<div class="pitch-img">
-											<img src="{{ asset('assets/registration/img/pitches/pitch-1.png') }}" class="img-fluid" alt="Pitch">
+											<img src="{{ url('storage/images/stadiums/'.$stadium->image) }}" class="img-fluid" alt="Pitch">
 										</div>
 										<div class="pitch-info-cont">
 											<h4 class="pitch-name">{{ $stadium->name }}</h4>
 											<p class="pitch-department">{{ $stadium->size }}</p>
 											<div class="rating">
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star filled"></i>
-												<i class="fas fa-star"></i>
+												@php
+                                                    $i=0;
+                                                    while($i < floor($stadium->rates->avg('rate'))){
+                                                        echo '<i class="fas fa-star filled"></i>';
+                                                        $i++;
+                                                    }
+                                                    while($i < 5){
+                                                        echo '<i class="fas fa-star"></i>';
+                                                        $i++;
+                                                    }
+											
+                                                @endphp
 												<span class="d-inline-block average-rating">({{ $stadium->reviews->count('comment') }})</span>
 											</div>
 											<div class="pitch-details">
 												<p class="pitch-location"><i class="fas fa-map-marker-alt"></i>{{ $stadium->address }}
-												  <a href="https://goo.gl/maps/j3hP3RQpffv7xkgE8" target="_blank">موقع الملعب</a>
+												  <a href="{{ $stadium->google_link }}" target="_blank">موقع الملعب</a>
 												</p>
 												<ul class="pitch-gallery">
 													{{-- foor loop here --}}
+													@forelse ($stadium->images as $image)
 													<li>
-														<a href="assets/img/pitches/pitch-1.png" data-fancybox="gallery">
-															<img src="assets/img/pitches/pitch-1.png" alt="Pitch">
+														<a href="{{ url('storage/images/stadiums/'.$image->image) }}" data-fancybox="gallery">
+															<img src="{{ url('storage/images/stadiums/'.$image->image) }}" alt="Pitch">
 														</a>
 													</li>
-													
+													@empty
+														<div class="alert alert-warning">
+															No Images
+														</div>
+													@endforelse
 												</ul>
 											</div>
 										</div>
@@ -49,15 +61,13 @@
 										</div>
 										<div class="pitch-infos">
 											<ul>
-												<li><i class="far fa-thumbs-up"></i> 92%</li>
+												<li><i class="far fa-thumbs-up"></i> {{ $stadium->rating()}}%</li>
 												<li><i class="far fa-comment"></i> {{ $stadium->reviews->count('comment') }} تعليق</li>
 												<li><i class="fas fa-map-marker-alt"></i>{{ $stadium->address }}</li>
 												<li><i class="far fa-money-bill-alt"></i>سعر الساعة EGP {{ $stadium->hour_price }}</li>
 											</ul>
 										</div>
-										<div class="pitch-booking">
-											<a class="apt-btn" href="booking.html">احجز موعدًا</a>
-										</div>
+										
 									</div>
 								</div>
 							</div>
@@ -74,15 +84,11 @@
 										<li class="nav-item">
 											<a class="nav-link active" href="#pitch_overview" data-toggle="tab">نظرة عامة</a>
 										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="#pitch_locations" data-toggle="tab">الملاعب</a>
-										</li>
+										
 										<li class="nav-item">
 											<a class="nav-link" href="#pitch_reviews" data-toggle="tab">الآراء</a>
 										</li>
-										<li class="nav-item">
-											<a class="nav-link" href="#pitch_business_hours" data-toggle="tab">ساعات العمل</a>
-										</li>
+										
 									</ul>
 								</nav>
 								<!-- /Tab Menu -->
@@ -112,9 +118,8 @@
 													<div class="experience-box">
 													 <div class="service-listt">
 														<ul class="experience-list">
-															@foreach ($stadium->services as $service)
-																
-															@endforeach
+															
+															@forelse ($stadium->services as $service)
 															<li>
 																<div class="experience-user">
 																	<div class="before-circle"></div>
@@ -126,6 +131,12 @@
 																	</div>
 																</div>
 															</li>
+															@empty
+																<div class="alert alert-warning text-center">
+																	No Services
+																</div>
+															@endforelse
+															
 														</ul>
 													</div>
 												</div>
@@ -188,7 +199,7 @@
 													<h4 class="widget-title">موقع الملعب </h4>
 													<div class="experiencee-box">
 														<div class="google-maps">
-															 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27348.4401680817!2d31.38203322887423!3d31.03864503973191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f79d38729675cf%3A0xb557a8cb5964ad71!2z2YXZhNin2LnYqCDYo9mF2YQg2YXYtdix!5e0!3m2!1sen!2seg!4v1640523762249!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+															 <iframe src="{{ $stadium->iframe }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 														</div>
 													</div>
 												</div>
@@ -200,168 +211,7 @@
 									<!-- /Overview Content -->
 									
 									<!-- Locations Content -->
-									<div role="tabpanel" id="pitch_locations" class="tab-pane fade">
 									
-										<!-- Location List -->
-										<div class="location-list">
-											<div class="row">
-											
-												<!-- pitch Content -->
-												<div class="col-md-6">
-													<div class="pitch-content">
-														<h4 class="pitch-name"><a href="#">ملعب الأمل 1</a></h4>
-														<p class="pitch-speciality">7x7</p>
-														<div class="rating">
-															<i class="fas fa-star filled"></i>
-															<i class="fas fa-star filled"></i>
-															<i class="fas fa-star filled"></i>
-															<i class="fas fa-star filled"></i>
-															<i class="fas fa-star"></i>
-															<span class="d-inline-block average-rating">(15)</span>
-														</div>
-														<div class="pitch-details mb-0">
-															<h5 class="pitch-direction"> <i class="fas fa-map-marker-alt"></i>المنصورة<br>
-															<a href="https://goo.gl/maps/j3hP3RQpffv7xkgE8" target="_blank">موقع الملعب</a></h5>
-															<ul>
-																<li>
-																	<a href="assets/img/pitches/pitch-1.png" data-fancybox="gallery2">
-																		<img src="assets/img/pitches/pitch-1.png" alt="Feature Image">
-																	</a>
-																</li>
-																<li>
-																	<a href="assets/img/pitches/pitch-1-1.png" data-fancybox="gallery2">
-																		<img src="assets/img/pitches/pitch-1-1.png" alt="Feature Image">
-																	</a>
-																</li>
-																<li>
-																	<a href="assets/img/pitches/pitch-1-2.png" data-fancybox="gallery2">
-																		<img src="assets/img/pitches/pitch-1-2.png" alt="Feature Image">
-																	</a>
-																</li>
-																<li>
-																	<a href="assets/img/pitches/pitch-1-3.png" data-fancybox="gallery2">
-																		<img src="assets/img/pitches/pitch-1-3.png" alt="Feature Image">
-																	</a>
-																</li>
-															</ul>
-														</div>
-													</div>
-												</div>
-												<!-- /pitch Content -->
-												
-												<!-- pitch Timing -->
-												<div class="col-md-4">
-													<div class="pitch-timing">
-														<div>
-															<p class="timings-days">
-																<span>السبت - الخميس</span>
-															</p>
-															<p class="timings-times">
-																<span>8:00 ص - 12:00 م</span>
-															</p>
-														</div>
-														<div>
-														<p class="timings-days">
-															<span>الجمعة</span>
-														</p>
-														<p class="timings-times">
-															<span>1:00 م - 2:00 ص</span>
-														</p>
-														</div>
-													</div>
-												</div>
-												<!-- /pitch Timing -->
-												
-												<div class="col-md-2">
-													<div class="hour-price">
-														EGP 100
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- /Location List -->
-										
-										<!-- Location List -->
-										<div class="location-list">
-											<div class="row">
-											
-												<!-- pitch Content -->
-												<div class="col-md-6">
-													<div class="pitch-content">
-														<h4 class="pitch-name"><a href="#">ملعب الأمل 2</a></h4>
-														<p class="pitch-speciality">7x7</p>
-														<div class="rating">
-															<i class="fas fa-star filled"></i>
-															<i class="fas fa-star filled"></i>
-															<i class="fas fa-star filled"></i>
-															<i class="fas fa-star filled"></i>
-															<i class="fas fa-star"></i>
-															<span class="d-inline-block average-rating">(20)</span>
-														</div>
-														<div class="pitch-details mb-0">
-															<h5 class="pitch-direction"> <i class="fas fa-map-marker-alt"></i>المنصورة<br>                                              
-															<a href="https://goo.gl/maps/j3hP3RQpffv7xkgE8" target="_blank">موقع الملعب</a></h5>
-															<ul>
-																<li>
-																	<a href="assets/img/pitches/pitch-6.png" data-fancybox="gallery2">
-																		<img src="assets/img/pitches/pitch-6.png" alt="Feature Image">
-																	</a>
-																</li>
-																<li>
-																	<a href="assets/img/pitches/pitch-6-1.png" data-fancybox="gallery2">
-																		<img src="assets/img/pitches/pitch-6-1.png" alt="Feature Image">
-																	</a>
-																</li>
-																<li>
-																	<a href="assets/img/pitches/pitch-6-2.png" data-fancybox="gallery2">
-																		<img src="assets/img/pitches/pitch-6-2.png" alt="Feature Image">
-																	</a>
-																</li>
-																<li>
-																	<a href="assets/img/pitches/pitch-6-3.png" data-fancybox="gallery2">
-																		<img src="assets/img/pitches/pitch-6-3.png" alt="Feature Image">
-																	</a>
-																</li>
-															</ul>
-														</div>
-	
-													</div>
-												</div>
-												<!-- /pitch Content -->
-												
-												<!-- pitch Timing -->
-												<div class="col-md-4">
-													<div class="pitch-timing">
-														<div>
-															<p class="timings-days">
-																<span>السبت - الخميس</span>
-															</p>
-															<p class="timings-times">
-																<span>8:00 ص - 12:00 م</span>
-															</p>
-														</div>
-														<div>
-														<p class="timings-days">
-															<span>الجمعة</span>
-														</p>
-														<p class="timings-times">
-															<span>1:00 م - 2:00 ص</span>
-														</p>
-														</div>
-													</div>
-												</div>
-												<!-- /pitch Timing -->
-												
-												<div class="col-md-2">
-													<div class="hour-price">
-														EGP 120
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- /Location List -->
-	
-									</div>
 									<!-- /Locations Content -->
 									
 									<!-- Reviews Content -->
@@ -380,13 +230,6 @@
 															<div class="meta-data">
 																<span class="comment-author">{{ $review->user->name }}</span>
 																<span class="comment-date">{{ $review->created_at }}</span>
-																<div class="review-count rating">
-																	<i class="fas fa-star filled"></i>
-																	<i class="fas fa-star filled"></i>
-																	<i class="fas fa-star filled"></i>
-																	<i class="fas fa-star filled"></i>
-																	<i class="fas fa-star"></i>
-																</div>
 															</div>
 															<p class="comment-content">
 																{{ $review->comment }}
@@ -465,70 +308,6 @@
 							
 									</div>
 									<!-- /Reviews Content -->
-									
-									<!-- Business Hours Content -->
-									<div role="tabpanel" id="pitch_business_hours" class="tab-pane fade">
-										<div class="row">
-											<div class="col-md-6 offset-md-3">
-											
-												<!-- Business Hours Widget -->
-												<div class="widget business-widget">
-													<div class="widget-content">
-														<div class="listing-hours">
-															<div class="listing-day">
-																<div class="day">السبت</div>
-																<div class="time-items">
-																	<span class="time">08:00 ص - 12:00 م</span>
-																</div>
-															</div>
-															<div class="listing-day">
-																<div class="day">الأحد</div>
-																<div class="time-items">
-																	<span class="time">08:00 ص - 12:00 م</span>
-																</div>
-															</div>
-															<div class="listing-day">
-																<div class="day">الإثنين</div>
-																<div class="time-items">
-																	<span class="time">08:00 ص - 12:00 م</span>
-																</div>
-															</div>
-															<div class="listing-day">
-																<div class="day">الثلاثاء</div>
-																<div class="time-items">
-																	<span class="time">08:00 ص - 12:00 م</span>
-																</div>
-															</div>
-															<div class="listing-day">
-																<div class="day">الأربعاء</div>
-																<div class="time-items">
-																	<span class="time">08:00 ص - 12:00 م</span>
-																</div>
-															</div>
-															<div class="listing-day">
-																<div class="day">الخميس</div>
-																<div class="time-items">
-																	<span class="time">08:00 ص - 12:00 م</span>
-																</div>
-															</div>
-															<hr>
-															<div class="listing-day">
-																<div class="day">الجمعة</div>
-																<div class="time-items">
-																	 <span>1:00 م - 2:00 ص</span>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<!-- /Business Hours Widget -->
-										
-											</div>
-										</div>
-									</div>
-									<!-- /Business Hours Content -->
-									
-								</div>
 							</div>
 						</div>
 						<!-- /pitch Details Tab -->

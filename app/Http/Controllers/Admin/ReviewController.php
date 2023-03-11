@@ -26,8 +26,9 @@ class ReviewController extends Controller
         ->join('stadiums','stadiums.id','=','comments.stadium_id')
         ->join('users','users.id','=','comments.user_id')
         ->whereIn('comments.stadium_id',$list_of_stadiums)
-        ->get(['users.name as user_name','stadiums.name as stadium_name','comments.stadium_id','comments.id',
-        'comments.comment','comments.created_at']);
+        ->get(['users.name as user_name',
+        'stadiums.name as stadium_name','stadiums.image as stadium_image',
+        'comments.stadium_id','comments.id','comments.comment','comments.created_at']);
 
         return view('admin.reviews',compact('reviews'));
     }

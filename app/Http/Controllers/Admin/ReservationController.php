@@ -23,7 +23,8 @@ class ReservationController extends Controller
         ->join('users','user_id','=','users.id')
         ->join('stadiums','stadium_id','=','stadiums.id')
         ->whereIn('stadium_id',$list_of_stadiums)->where('deleted_at',null)
-        ->get(['stadiums.name as stadium_name','users.name as user_name',
+        ->get(['stadiums.name as stadium_name','stadiums.image as stadium_image',
+            'users.name as user_name',
             'matchs.date','matchs.status','matchs.code as match_code'
             ,'matchs.money','matchs.hours','matchs.id','matchs.stadium_id']);
 
@@ -62,7 +63,7 @@ class ReservationController extends Controller
         $invoice = DB::table('matchs')
         ->join('users','user_id','=','users.id')
         ->join('stadiums','stadium_id','=','stadiums.id')
-        ->where('matchs.id',$id)
+        ->where('matchs.id',$id)->where('delete_at',null)
         ->first(['stadiums.name as stadium_name','stadiums.address','stadiums.hour_price',
         'users.name as user_name','users.email','users.phone',
         'matchs.hours','matchs.money','matchs.code','matchs.created_at','matchs.hours']);
@@ -101,7 +102,7 @@ class ReservationController extends Controller
      */
     public function destroy(Reservation $reservation)
     {
-        $this->authorize('delete',$reservation);
+        // $this->authorize('delete',$reservation);
         Reservation::destroy($reservation->id);
     }
 }

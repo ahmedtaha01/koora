@@ -105,12 +105,12 @@
         <!-- User Menu -->
         <li class="nav-item dropdown has-arrow">
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                <span class="user-img"><img class="rounded-circle" src="{{ url('storage/images/admins/'.auth()->user()->image) }}" width="31" alt="user"></span>
+                <span class="user-img"><img class="rounded-circle" src="{{ auth()->user()->image ? url('storage/images/admins/'.auth()->user()->image): asset('assets/admin/img/profiles/user.png') }}" width="31" alt="user"></span>
             </a>
             <div class="dropdown-menu">
                 <div class="user-header">
                     <div class="avatar avatar-sm">
-                        <img src="{{ url('storage/images/admins/'.auth()->user()->image) }}" alt="User Image" class="avatar-img rounded-circle">
+                        <img src="{{ auth()->user()->image ? url('storage/images/admins/'.auth()->user()->image): asset('assets/admin/img/profiles/user.png') }}" alt="User Image" class="avatar-img rounded-circle">
                     </div>
                     <div class="user-text">
                         <h6>{{ auth()->user()->name }}</h6>
@@ -118,7 +118,7 @@
                     </div>
                 </div>
                 <a class="dropdown-item" href="{{ route('admin.profile.index') }}">ملفي الشخصي</a>
-                <a class="dropdown-item" href="lock-screen.html">قفل الشاشة</a>
+                <a class="dropdown-item" href="{{ route('admin.lockscreen') }}">قفل الشاشة</a>
                 <a class="dropdown-item" href="{{ route('logout') }}">تسجيل خروج</a>
             </div>
         </li>

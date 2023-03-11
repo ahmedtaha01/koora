@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class LogoutController extends Controller
 {
     public function logout(){
+        if(session()->has('lockscreen')){
+            session()->forget('lockscreen');
+        }
         Auth::logout();
 
         return redirect()->route('login');

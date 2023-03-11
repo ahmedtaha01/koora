@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'forget_password' => \App\Http\Middleware\ForgetPassword::class,
         'is_admin'  => \App\Http\Middleware\IsAdmin::class,
+        'lock_screen'   => \App\Http\Middleware\LockScreen::class,
     ];
 }

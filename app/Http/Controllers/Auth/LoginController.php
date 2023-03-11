@@ -25,6 +25,8 @@ class LoginController extends Controller
             $request->session()->regenerate();
             if(auth()->user()->role_id == '21'){
                 return redirect()->route('admin.dashboard');
+            } else {
+                return redirect()->route('user.index');
             }
         }
         

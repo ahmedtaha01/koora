@@ -9,13 +9,13 @@
 			<header class="header">
 				
 					<div class="navbar-header">
-						<a href="index.html" class="navbar-brand logo">
+						<a href="{{ route('index') }}" class="navbar-brand logo">
 							<img src="{{ asset('assets/registration/img/main logo 3.png') }}" class="img-fluid" alt="Logo">
 						</a>
 					</div>
 					<div class="main-menu-wrapper">
 						<div class="menu-header">
-							<a href="index.html" class="menu-logo">
+							<a href="{{ route('index') }}" class="menu-logo">
 								<img src="assets/registration/img/main%20logo%203.png {{ asset('assets/registration/img/main logo 3.png') }}" class="img-fluid" alt="Logo">
 							</a>
 						</div>
@@ -36,7 +36,7 @@
 									</div>
 									<div class="col-md-12 col-lg-6 login-right">
 										<div class="login-header">
-											<h3>أنشئ حساب<a href="owner-register.html">هل لديك ملعب ؟</a></h3>
+											<h3>أنشئ حساب<a href="{{ route('register.owner') }}">هل لديك ملعب ؟</a></h3>
 										</div>
 										
 										<!-- Register Form -->
@@ -90,10 +90,6 @@
 													<span>{{ $message }}</span>
 												</div>
 											@enderror
-											<label for="html" class="focus-label">لديك ملعب</label>
-											<input type="checkbox" name="owner">
-											
-											
 											<div>
 												<a class="forgot-link" href="{{ route('login') }}">لديك حساب ؟</a>
 											</div>

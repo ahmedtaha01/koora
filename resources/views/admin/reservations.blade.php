@@ -45,7 +45,7 @@
 											
 											<td>
 												<h2 class="table-avatar">
-													<a href="{{ route('admin.stadiums.show',$reservation->stadium_id) }}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/Admin/img/profiles/user.png') }}" alt="User Image"></a>
+													<a href="{{ route('admin.stadiums.show',$reservation->stadium_id) }}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ url('storage/images/stadiums').'/'.$reservation->stadium_image }}" alt="User Image"></a>
 													<a href="{{ route('admin.stadiums.show',$reservation->stadium_id) }}">{{ $reservation->stadium_name }}</a>
 												</h2>
 											</td>

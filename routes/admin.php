@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\LockController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ReservationController;
 use App\Http\Controllers\Admin\ReservationUpdateStatusController;
@@ -22,7 +23,7 @@ use Symfony\Component\HttpKernel\Profiler\Profile;
 */
 
 
-Route::prefix('admin')->name('admin.')->middleware(['auth','is_admin'])->group(function(){
+Route::prefix('admin')->name('admin.')->middleware(['auth','is_admin','lock_screen'])->group(function(){
     Route::get('dashboard',DashboardController::class)->name('dashboard');
 
     Route::resource('reservations',ReservationController::class);
@@ -38,6 +39,12 @@ Route::prefix('admin')->name('admin.')->middleware(['auth','is_admin'])->group(f
     Route::put('profile',[ProfileController::class,'update'])->name('profile.update');
     Route::resource('profile',ProfileController::class)->except('update');
 });
+
+Route::prefix('admin')->name('admin.')->middleware(['auth','is_admin'])->group(function(){
+    Route::get('lockscreen',[LockController::class,'lockscreen'])->name('lockscreen');
+    Route::post('unlock',[LockController::class,'unlock'])->name('unlock');
+});
+
 
 
 

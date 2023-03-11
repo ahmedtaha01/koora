@@ -1,4 +1,4 @@
-@extends('index.layouts.app')
+@extends('user.layouts.app')
 
 
 @section('content')
@@ -175,7 +175,7 @@
                         <div class="profile-widget">
                             <div class="pitch-img">
                                 <a href="pitch-profile.html">
-                                    <img class="img-fluid" alt="User Image" src="{{ asset('assets/registration/img/pitches/pitch-1.png') }}">
+                                    <img class="img-fluid" alt="User Image" src="{{ url('storage/images/stadiums/'.$stadium->image) }}">
                                 </a>
                                 <a href="javascript:void(0)" class="fav-btn">
                                     <i class="far fa-bookmark"></i>

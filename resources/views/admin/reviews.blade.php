@@ -29,7 +29,7 @@
 									<tr>
 										<th>اسم العميل</th>
 										<th>اسم الملعب</th>
-										<th>التقييم</th>
+										
 										<th>الوصف</th>
 										<th>التاريخ</th>
 										<th>إجراء</th>
@@ -46,17 +46,9 @@
 										</td>
 										<td>
 											<h2 class="table-avatar">
-												<a href="{{ route('admin.stadiums.show',$review->stadium_id) }}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
+												<a href="{{ route('admin.stadiums.show',$review->stadium_id) }}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ url('storage/images/stadiums').'/'.$review->stadium_image }}" alt="User Image"></a>
 												<a href="{{ route('admin.stadiums.show',$review->stadium_id) }}">{{ $review->stadium_name }}</a>
 											</h2>
-										</td>
-										
-										<td>
-											<i class="fe fe-star text-warning"></i>
-											<i class="fe fe-star text-warning"></i>
-											<i class="fe fe-star text-warning"></i>
-											<i class="fe fe-star-o text-secondary"></i>
-											<i class="fe fe-star-o text-secondary"></i>
 										</td>
 										
 										<td>
