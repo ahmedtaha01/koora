@@ -21,7 +21,7 @@
                                   <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'><span>85:45</span> </div>
                                   <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'><span style="font-weight:normal; display:block">موقع لحجز الملاعب</span><br>بكل سهولة</div><br>
                                   <div class='tp-caption Title sft  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1450' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>أحجز ملعبك الأن</div>
-                                  <div class='tp-caption sfb  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1500' data-            easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href="{{ route('pitch_list') }}" class="buy-btn">احجز موعدًا</a> </div>
+                                  <div class='tp-caption sfb  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1500' data-            easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href="{{ route('user.stadiums.index') }}" class="buy-btn">احجز موعدًا</a> </div>
                                 </div>
                               </div>
                             </div>
@@ -37,7 +37,7 @@
                                   <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'><span>85:45</span> </div>
                                   <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'><span style="font-weight:normal; display:block">موقع لحجز الملاعب</span><br> بكل سهولة </div><br>
                                   <div class='tp-caption Title sft  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1450' data-            easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>أحجز ملعبك الأن</div>
-                                  <div class='tp-caption sfb  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href="pitches-list.html" class="buy-btn">احجز موعدًا</a> </div>
+                                  <div class='tp-caption sfb  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href="{{ route('user.stadiums.index') }}" class="buy-btn">احجز موعدًا</a> </div>
                                 </div>
                               </div>
                             </div>
@@ -53,7 +53,7 @@
                                  <div class='tp-caption ExtraLargeTitle sft  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'><span>85:45</span> </div>
                                  <div class='tp-caption LargeTitle sfl  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'><span style="font-weight:normal; display:block">موقع لحجز الملاعب</span><br> بكل سهولة </div><br>
                                  <div class='tp-caption Title sft  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1450' data-easing='Power2.easeInOut' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'>أحجز ملعبك الأن</div>
-                                 <div class='tp-caption sfb  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href="pitches-list.html" class="buy-btn">احجز موعدًا</a> </div>
+                                 <div class='tp-caption sfb  tp-resizeme ' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href="{{ route('user.stadiums.index') }}" class="buy-btn">احجز موعدًا</a> </div>
                                </div>
                              </div>
                            </div>
@@ -165,7 +165,7 @@
                         <p>أختر ملعبك المفضل والمساحة المفضلة وبالموقع القريب منك بسهولة  </p>
                         <p>بالأسعار التي تناسبك</p>
                         <br>
-                        <a href="{{ route('pitch_list') }}">أعرف المزيد</a>
+                        <a href="{{ route('user.stadiums.index') }}">أعرف المزيد</a>
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -174,7 +174,7 @@
                             <!-- Pitch Widget -->
                         <div class="profile-widget">
                             <div class="pitch-img">
-                                <a href="pitch-profile.html">
+                                <a href="{{ route('user.stadiums.show',$stadium->id) }}">
                                     <img class="img-fluid" alt="User Image" src="{{ url('storage/images/stadiums/'.$stadium->image) }}">
                                 </a>
                                 <a href="javascript:void(0)" class="fav-btn">
@@ -183,17 +183,23 @@
                             </div>
                             <div class="pro-content">
                                 <h3 class="title">
-                                    <a href="pitch-profile.html">{{ $stadium->name }}</a> 
+                                    <a href="{{ route('user.stadiums.show',$stadium->id) }}">{{ $stadium->name }}</a> 
                                     <i class="fas fa-check-circle verified"></i>
                                 </h3>
                                 <p class="speciality">{{ $stadium->size }}</p>
                                 <div class="rating">
-                                    <i class="fas fa-star filled"></i>
-                                    <i class="fas fa-star filled"></i>
-                                    <i class="fas fa-star filled"></i>
-                                    <i class="fas fa-star filled"></i>
-                                    <i class="fas fa-star filled"></i>
-                                    <span class="d-inline-block average-rating">(17)</span>
+                                  @php
+                                    $i=0;
+                                    while($i < floor($stadium->rates->avg('rate'))){
+                                        echo '<i class="fas fa-star filled"></i>';
+                                        $i++;
+                                    }
+                                    while($i < 5){
+                                        echo '<i class="fas fa-star"></i>';
+                                        $i++;
+                                    }
+                                  @endphp
+                                    <span class="d-inline-block average-rating">({{ $stadium->reviews->count('comment_id') }})</span>
                                 </div>
                                 <ul class="available-info">
                                     <li>
@@ -208,10 +214,10 @@
                                 </ul>
                                 <div class="row row-sm">
                                     <div class="col-6">
-                                        <a href="{{ route('stadium.show',$stadium->id) }}" class="btn view-btn">عرض التفاصيل</a>
+                                        <a href="{{ route('user.stadiums.show',$stadium->id) }}" class="btn view-btn">عرض التفاصيل</a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="booking.html" class="btn book-btn">أحجز الأن</a>
+                                        <a href="{{ route('user.reservation_date',$stadium->id) }}" class="btn book-btn">أحجز الأن</a>
                                     </div>
                                 </div>
                             </div>

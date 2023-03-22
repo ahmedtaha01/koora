@@ -16,7 +16,7 @@ class AlterTableMatchs extends Migration
         Schema::table('matchs', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('stadium_id')->references('id')->on('stadiums')->onDelete('cascade');
-            $table->foreign('bill_id')->references('id')->on('bills')->onDelete('cascade');
+            
         });
     }
 

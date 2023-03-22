@@ -22,7 +22,7 @@ class RegisterOwnerController extends Controller
             'phone'     => $request->phone,
             'password'  => Hash::make($request->password),
             'code'      => mt_rand(1000000,9999999),
-            'role_id'   => '21'
+            'role_id'   => '1'
         ]);
 
         Auth::login($user);

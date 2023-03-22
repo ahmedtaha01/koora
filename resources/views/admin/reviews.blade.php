@@ -40,14 +40,14 @@
 									<tr>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
-												<a href="profile.html">{{ $review->user_name }}</a>
+												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ $review->user->image ? url('storage/images/users/'.$review->user->image): asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
+												<a href="profile.html">{{ $review->user->name }}</a>
 											</h2>
 										</td>
 										<td>
 											<h2 class="table-avatar">
-												<a href="{{ route('admin.stadiums.show',$review->stadium_id) }}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ url('storage/images/stadiums').'/'.$review->stadium_image }}" alt="User Image"></a>
-												<a href="{{ route('admin.stadiums.show',$review->stadium_id) }}">{{ $review->stadium_name }}</a>
+												<a href="{{ route('admin.stadiums.show',$review->stadium_id) }}" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ url('storage/images/stadiums').'/'.$review->stadium->image }}" alt="User Image"></a>
+												<a href="{{ route('admin.stadiums.show',$review->stadium_id) }}">{{ $review->stadium->name }}</a>
 											</h2>
 										</td>
 										
@@ -70,8 +70,8 @@
 									</tr>
 									@empty
 									<tr>
-										<td colspan="4">
-											<div class="alert alert-warning">
+										<td colspan="5">
+											<div class="alert alert-warning text-center">
 												No Reviews
 											</div>
 										</td>

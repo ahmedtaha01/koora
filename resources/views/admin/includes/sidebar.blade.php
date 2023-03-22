@@ -28,7 +28,7 @@
                 <li class="menu-title"> 
                     <span>الصفحات</span>
                 </li>
-                <li> 
+                <li class="{{ Route::currentRouteName() == 'admin.profile.index' ? 'active' : '' }}"> 
                     <a href="{{ route('admin.profile.index') }}"><i class="fe fe-user-plus"></i> <span>الملف الشخصي</span></a>
                 </li>
                 <li class="submenu">

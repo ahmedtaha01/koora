@@ -17,10 +17,12 @@ class CreateMatchsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('stadium_id');
-            $table->unsignedBigInteger('bill_id')->nullable();
             $table->datetime('date');
             $table->string('hours',2);
             $table->char('status');
+            $table->string('code');
+            $table->integer('money');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -72,8 +72,8 @@
 											</tr>
 											@empty
 											<tr>
-												<td colspan="4">
-													<div class="alert alert-warning">
+												<td colspan="7">
+													<div class="alert alert-warning text-center">
 														No Stadiums
 													</div>
 												</td>

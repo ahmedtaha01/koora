@@ -222,7 +222,7 @@
                                         <tr>
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
+                                                    <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ $player->image ? url('storage/images/users/'.$player->image): asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
                                                     <a href="profile.html">{{ $player->name }}</a>
                                                 </h2>
                                             </td>
@@ -282,7 +282,7 @@
                                             <td>{{ $reservation->size }}</td>
                                             <td>
                                                 <h2 class="table-avatar">
-                                                    <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
+                                                    <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ $reservation->user_image ? url('storage/images/users/'.$reservation->user_image): asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
                                                     <a href="profile.html">{{ $reservation->user_name }}</a>
                                                 </h2>
                                             </td>

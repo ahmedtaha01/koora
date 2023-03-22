@@ -1,10 +1,23 @@
-@extends('index.layouts.app')
+@extends('user.layouts.app')
 
 @section('content')
-<div class="main-wrapper">
-	
-	<!-- Page Content -->
-	<div class="content">
+<!-- Breadcrumb -->
+<div class="breadcrumb-bar">
+	<div class="container-fluid">
+		<div class="row align-items-center">
+			<div class="col-md-12 col-12">
+				<nav aria-label="breadcrumb" class="page-breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="{{ route('user.index') }}">الرئيسية</a></li>
+						<li class="breadcrumb-item active" aria-current="page">قائمه الملاعب</li>
+					</ol>
+				</nav>
+				<h2 class="breadcrumb-title"> قائمه المواعيد</h2>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /Breadcrumb -->
 		<div class="container-fluid">
 
 			<div class="row">
@@ -69,17 +82,15 @@
 										</ul>
 									</div>
 									<div class="pitch-booking">
-										<a class="view-pro-btn" href="{{ route('stadium.show',$stadium->id) }}">عرض التفاصيل</a>
-										<a class="apt-btn" href="booking.html">أحجز الأن</a>
+										<a class="view-pro-btn" href="{{ route('user.stadiums.show',$stadium->id) }}">عرض التفاصيل</a>
+										<a class="apt-btn" href="{{ route('user.reservation_date',$stadium->id) }}">أحجز الأن</a>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					@empty
-					<div class="alert alert-warning text-center">
 						No Stadiums
-					</div>
 					@endforelse
 					
 					<!-- Pitch Widget -->
@@ -96,7 +107,6 @@
 		</div>
 
 	</div>		
-	<!-- /Page Content -->
-</div>
+
 @endsection
 

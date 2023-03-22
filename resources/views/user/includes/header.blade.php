@@ -20,11 +20,25 @@
 <link rel="stylesheet" href="{{ asset('assets/registration/css/style.css') }}">
 
 <!-- Fontawesome CSS -->
-<link rel="stylesheet" href="{{ asset('assets/registration/plugins/slider/stylesheet/font-awesome.css') }}" media="all">
-
-<!-- Main CSS -->
-<link rel="stylesheet" href="{{ asset('assets/registration/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/registration/plugins/slider/stylesheet/font-awesome.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/registration/plugins/slider/stylesheet/revslider.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/registration/plugins/slider/stylesheet/owl.carousel.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/registration/plugins/slider/stylesheet/owl.theme.css') }}">
+@if (Route::currentRouteName() == 'user.reservation_date')
+    <link rel="stylesheet" href="{{ asset('assets/registration/plugins/slider/stylesheet/font-awesome.css') }}" media="all">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/registration/css/style.css') }}">
+    
+    <link rel="stylesheet" href="{{ asset('assets/registration/plugins/slider/stylesheet/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/registration/plugins/slider/stylesheet/owl.theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/registration/plugins/booking/booking-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/registration/plugins/booking/bootstrap-responsive.css') }}">
+@endif
+
+    <!-- Datetimepicker CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/registration/css/bootstrap-datetimepicker.min.css') }}">
+    
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/registration/plugins/select2/css/select2.min.css') }}">
+
+
 

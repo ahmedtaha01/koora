@@ -40,7 +40,7 @@ class DashboardController extends Controller
         ->whereIn('stadium_id',$list_of_stadiums)->where('deleted_at',null)
         ->get(['stadiums.name as stadium_name','stadiums.size','stadiums.id as stadium_id',
         'stadiums.image as stadium_image',
-        'users.name as user_name',
+        'users.name as user_name','users.image as user_image',
         'matchs.date','matchs.status','matchs.money','matchs.hours','matchs.id']);
         
         

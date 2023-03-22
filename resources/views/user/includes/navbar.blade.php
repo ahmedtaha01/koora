@@ -37,21 +37,21 @@
                 <li class="nav-item dropdown has-arrow logged-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <span class="user-img">
-                            <img class="rounded-circle" src="{{ asset('assets/registration/img/clients/user.png') }}" width="31" alt="User">
+                            <img class="rounded-circle" src="{{ auth()->user()->image ? url('storage/images/users/'.auth()->user()->image): asset('assets/admin/img/profiles/user.png') }}" width="31" alt="User">
                         </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="{{ asset('assets/registration/img/clients/user.png') }}" alt="User Image" class="avatar-img rounded-circle">
+                                <img src="{{ auth()->user()->image ? url('storage/images/users/'.auth()->user()->image): asset('assets/admin/img/profiles/user.png') }}" alt="User Image" class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
-                                <h6>عميل 1</h6>
-                                <p class="text-muted mb-0">عميل</p>
+                                <h6> {{ auth()->user()->name }}</h6>
+                                <p class="text-muted mb-0">{{ auth()->user()->role->type }}</p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="client-dashboard.html">لوحة التحكم</a>
-                        <a class="dropdown-item" href="profile-settings.html">إعدادات الملف الشخصي</a>
+                        <a class="dropdown-item" href="{{ route('user.dashboard') }}">لوحة التحكم</a>
+                        <a class="dropdown-item" href="{{ route('user.profile_settings') }}">إعدادات الملف الشخصي</a>
                         <a class="dropdown-item" href="{{ route('logout') }}">تسجيل الخروج</a>
                     </div>
                 </li>
@@ -60,20 +60,3 @@
             </ul>
         </nav>
     </header>
-    <!-- Breadcrumb -->
-    <div class="breadcrumb-bar">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-md-12 col-12">
-                    <nav aria-label="breadcrumb" class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('index') }}">الرئيسية</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">صفحة الملعب</li>
-                        </ol>
-                    </nav>
-                    <h2 class="breadcrumb-title">الملعب</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /Breadcrumb -->

@@ -1,13 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CreateReviewRequest;
 use App\Models\Comment;
 use App\Models\Rate;
-use App\Models\Stadium;
-use App\Policies\Admin\ReviewPolicy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -21,17 +18,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $list_of_stadiums = Auth::user()->stadiums->pluck('id')->toArray();
-        // $reviews = DB::table('comments')
-        // ->join('stadiums','stadiums.id','=','comments.stadium_id')
-        // ->join('users','users.id','=','comments.user_id')
-        // ->whereIn('comments.stadium_id',$list_of_stadiums)
-        // ->get(['users.name as user_name',
-        // 'stadiums.name as stadium_name','stadiums.image as stadium_image',
-        // 'comments.stadium_id','comments.id','comments.comment','comments.created_at']);
-
-        $reviews = Comment::whereIn('stadium_id',$list_of_stadiums)->get();
-        return view('admin.reviews',compact('reviews'));
+        //
     }
 
     /**
@@ -50,9 +37,8 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateReviewRequest $request)
+    public function store(Request $request)
     {
-        
         DB::transaction(function() use ($request){
             Comment::create([
                 'comment'       => $request->review,
@@ -67,7 +53,7 @@ class ReviewController extends Controller
             ]);
         });
         
-        return redirect()->route('admin.stadiums.show',$request->stadium_id);
+        return redirect()->route('user.stadiums.show',$request->stadium_id);
     }
 
     /**
@@ -101,7 +87,7 @@ class ReviewController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
     }
 
     /**
@@ -110,8 +96,8 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $review)
+    public function destroy($id)
     {
-        Comment::destroy($review->id);
+        //
     }
 }

@@ -192,27 +192,12 @@
 														</ul>
 													</div>
 												</div>
-												<!-- /Experience Details -->
-									
-												<!-- map Details -->
-												<div class="widget map-widget">
-													<h4 class="widget-title">موقع الملعب </h4>
-													<div class="experiencee-box">
-														<div class="google-maps">
-															 <iframe src="{{ $stadium->iframe }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-														</div>
-													</div>
-												</div>
-												<!-- /map Details -->
+												
 	
 											</div>
 										</div>
 									</div>
-									<!-- /Overview Content -->
-									
-									<!-- Locations Content -->
-									
-									<!-- /Locations Content -->
+
 									
 									<!-- Reviews Content -->
 									<div role="tabpanel" id="pitch_reviews" class="tab-pane fade">
@@ -225,7 +210,7 @@
 												@forelse ($stadium->reviews as $review)
 												<li>
 													<div class="comment">
-														<img class="avatar avatar-sm rounded-circle" alt="User Image" src="{{ asset('assets/registration/img/clients/user.png') }}">
+														<img class="avatar avatar-sm rounded-circle" alt="User Image" src="{{ $review->user->image ? url('storage/images/users/'.$review->user->image): asset('assets/admin/img/profiles/user.png') }}">
 														<div class="comment-body">
 															<div class="meta-data">
 																<span class="comment-author">{{ $review->user->name }}</span>

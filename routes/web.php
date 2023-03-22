@@ -22,13 +22,13 @@ use App\Http\Controllers\User\MatchController;
 |
 */
 
-Route::get('/',[IndexController::class,'index'])->middleware('guest')->name('index');
+Route::middleware('guest')->group(function(){
+    Route::get('/',[IndexController::class,'index'])->middleware('guest')->name('index');
 
-Route::get('/pitchs_list',[IndexController::class,'pitch_list'])->name('pitch_list');
-
-Route::resource('stadium',StadiumController::class);
-
-Route::get('/match',[MatchController::class,'index'])->name('match');
+    Route::get('/pitchs_list',[IndexController::class,'pitch_list'])->name('pitch_list');
+    
+    Route::resource('stadium',StadiumController::class);    
+});
 
 Route::get('/logout',[LogoutController::class,'logout'])->middleware('auth')->name('logout');
 

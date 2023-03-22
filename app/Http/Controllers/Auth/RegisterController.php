@@ -22,7 +22,7 @@ class RegisterController extends Controller
             'phone'     => $request->phone,
             'password'  => Hash::make($request->password),
             'code'      => mt_rand(1000000,9999999),
-            'role_id'   => '22',
+            'role_id'   => '2',
         ]);
 
         Auth::login($user);

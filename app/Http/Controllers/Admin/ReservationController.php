@@ -24,7 +24,7 @@ class ReservationController extends Controller
         ->join('stadiums','stadium_id','=','stadiums.id')
         ->whereIn('stadium_id',$list_of_stadiums)->where('deleted_at',null)
         ->get(['stadiums.name as stadium_name','stadiums.image as stadium_image',
-            'users.name as user_name',
+            'users.name as user_name','users.image as user_image',
             'matchs.date','matchs.status','matchs.code as match_code'
             ,'matchs.money','matchs.hours','matchs.id','matchs.stadium_id']);
 

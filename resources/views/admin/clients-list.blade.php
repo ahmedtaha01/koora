@@ -43,7 +43,7 @@
 										<td>#{{ $client->code }}</td>
 										<td>
 											<h2 class="table-avatar">
-												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
+												<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ $client->image ? url('storage/images/users/'.$client->image): asset('assets/admin/img/profiles/user.png') }}" alt="User Image"></a>
 												<a href="profile.html">{{ $client->name }}</a>
 											</h2>
 										</td>
@@ -54,8 +54,8 @@
 									</tr>
 									@empty
 									<tr>
-										<td colspan="4">
-											<div class="alert alert-warning">
+										<td colspan="6">
+											<div class="alert alert-warning text-center">
 												No Clients
 											</div>
 										</td>

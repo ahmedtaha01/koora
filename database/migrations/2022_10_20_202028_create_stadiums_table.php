@@ -17,11 +17,12 @@ class CreateStadiumsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('address');
-            $table->text('map');
+            $table->text('iframe');
             $table->integer('hour_price');
             $table->string('size',3);
             $table->date('join_date');
-            $table->string('image');
+            $table->string('image')->nullable();
+            $table->string('google_link');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });

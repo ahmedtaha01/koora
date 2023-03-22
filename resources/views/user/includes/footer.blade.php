@@ -1,24 +1,3 @@
-{{-- <!-- Footer -->
-<footer class="footer">
-    <!-- Footer Bottom -->
-    <div class="footer-bottom">
-        <div class="container-fluid">
-        
-            <!-- Copyright -->
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 col-lg-6">
-                        <div class="copyright-text">
-                            <p class="mb-0"><a href="#">Designing &amp; Developing:Team 85:45</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /Copyright -->
-        </div>
-    </div>
-    <!-- /Footer Bottom --> 
-</footer> --}}
 
 <!-- jQuery -->
 <script src="{{ asset('assets/registration/js/jquery.min.js') }}"></script>
@@ -34,6 +13,11 @@
 <!-- Slick JS -->
 <script src="{{ asset('assets/registration/js/slick.js') }}"></script>
 
+<!-- Sticky Sidebar JS -->
+<script src="{{ asset('assets/registration/plugins/theia-sticky-sidebar/ResizeSensor.js') }}"></script>
+<script src="{{ asset('assets/registration/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js') }}"></script>
+
+
 <!-- Custom JS -->
 <script src="{{ asset('assets/registration/js/script.js') }}"></script>
 
@@ -41,7 +25,26 @@
 <script src="{{ asset('assets/registration/plugins/slider/js/bootstrap.min.js') }}"></script> 
 <script src="{{ asset('assets/registration/plugins/slider/js/revslider.js') }}"></script> 
 <script src="{{ asset('assets/registration/plugins/slider/js/owl.carousel.min.js') }}"></script> 
-<script src="{{ asset('assets/registration/plugins/slider/js/jquery.mobile-menu.min.js') }}"></script> 
+<script src="{{ asset('assets/registration/plugins/slider/js/jquery.mobile-menu.min.js') }}"></script>
+@if (Route::currentRouteName() == 'user.reservation_date')
+<script src="{{ asset('assets/registration/plugins/booking/booking-jquery.js') }}"></script>
+<script src="{{ asset('assets/registration/plugins/booking/bootstrap-datepicker.js') }}"></script>
+<script src="{{ asset('assets/registration/plugins/booking/booking-bootstrap.js') }}"></script>
+<script src="{{ asset('assets/registration/plugins/booking/booking-js.js') }}"></script>
+@endif
+
+<!-- Select2 JS -->
+<script src="{{ asset('assets/registration/plugins/select2/js/select2.min.js') }}"></script>
+
+
+<script>
+    function Time(){
+        element = document.getElementsByClassName('select');
+        time = document.getElementById('time');
+        time.value = element[0].innerText;
+    }
+</script>
+
 <script>
     jQuery(document).ready(function(){
     jQuery('#rev_slider_4').show().revolution({

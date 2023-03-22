@@ -27,10 +27,10 @@ class RedirectIfAuthenticated
         //     }
         // }
         if(Auth::check()){
-            if(auth()->user()->role_id == '21'){
+            if(auth()->user()->role_id == '1'){
                 return redirect()->route('admin.dashboard');
             } else {
-                return $next($request);
+                return redirect()->route('user.index');
             }
         }
 

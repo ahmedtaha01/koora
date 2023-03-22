@@ -23,7 +23,7 @@ class LoginController extends Controller
         if (Auth::attempt([$field => $request->email_or_phone , 'password' => $request->password]
         ,$request->remember ? true : false)){
             $request->session()->regenerate();
-            if(auth()->user()->role_id == '21'){
+            if(auth()->user()->role_id == '1'){
                 return redirect()->route('admin.dashboard');
             } else {
                 return redirect()->route('user.index');

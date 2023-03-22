@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Stadium;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +17,7 @@ class IndexController extends Controller
      */
     public function __invoke()
     {
-        $stadiums = DB::table('stadiums')->get();
+        $stadiums = Stadium::all();
         return view('user.index',compact('stadiums'));
     }
 }
