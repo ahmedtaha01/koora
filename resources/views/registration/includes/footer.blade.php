@@ -19,7 +19,7 @@
     </div>
     <!-- /Footer Bottom --> 
 </footer>
-
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0&appId=683156139901519&autoLogAppEvents=1" nonce="8osPsyuo"></script>
 <!-- jQuery -->
 <script src="{{ asset('assets/registration/js/jquery.min.js') }}"></script>
 

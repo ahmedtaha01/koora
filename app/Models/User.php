@@ -28,6 +28,8 @@ class User extends Authenticatable
         'role_id',
         'dob',
         'image',
+        'provider_id',
+        'provider_type',
     ];
 
     /**

@@ -10,9 +10,9 @@
                         <span></span>
                     </span>
                 </a>
-                <a href="index.html" class="navbar-brand logo">
+                {{-- <a href="index.html" class="navbar-brand logo">
                     <img src="{{ asset('assets/registration/img/main%20logo5.png') }}" class="img-fluid" alt="Logo">
-                </a>
+                </a> --}}
             </div>
             <div class="main-menu-wrapper">
                 <div class="menu-header">

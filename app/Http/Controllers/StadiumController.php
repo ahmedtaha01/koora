@@ -46,7 +46,7 @@ class StadiumController extends Controller
      */
     public function show(Stadium $stadium)
     {
-        return view('pitch-profile')->with('stadium',$stadium);
+        return view('user.pitch-profile')->with('stadium',$stadium);
     }
 
     /**

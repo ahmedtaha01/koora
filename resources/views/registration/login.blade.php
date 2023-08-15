@@ -29,7 +29,6 @@
             
             <div class="row">
                 <div class="col-md-8 offset-md-2">
-                    
                     <!-- Login Tab Content -->
                     <div class="account-content">
                         <div class="row align-items-center justify-content-center">
@@ -87,13 +86,27 @@
                                     </div>
                                     <div class="text-center dont-have">ليس لديك حساب ؟ <a href="{{ route('register') }}">أنشئ حساب</a></div>
                                 </form>
+                        
+                                <div class="text-center mt-1">
+                                    <a href="{{ route('login.facebook.provider') }}">
+                                        <img src="{{ asset('assets/socialite/facebook.png') }}" width="300px" height="50px" alt="">
+                                    </a>
+                                    
+                                </div>
+                                <div class="text-center mt-2">
+                                    <a href="{{ route('login.google.provider') }}">
+                                        <img src="{{ asset('assets/socialite/google.png') }}"  width="300px" height="50px" alt="">
+                                    </a>
+                                </div>
+
                             </div>
+                            
                         </div>
                     </div>
+                    
                     <!-- /Login Tab Content -->
                 </div>
             </div>
-
         </div>
 
     </div>	

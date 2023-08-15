@@ -32,6 +32,7 @@ class DashboardController extends Controller
         $stadiums = Auth::user()->stadiums;
 
         $players = Reservation::whereIn('stadium_id',$list_of_stadiums)->pluck('user_id')->toArray();
+        
         $players_info = User::findMany($players);
 
         $reservations = DB::table('matchs')

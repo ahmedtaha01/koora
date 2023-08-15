@@ -100,6 +100,17 @@
 											
 											
 										</form>
+										<div class="text-center mt-1">
+											<a href="{{ route('login.facebook.provider') }}">
+												<img src="{{ asset('assets/socialite/facebook.png') }}" width="300px" height="50px" alt="">
+											</a>
+											
+										</div>
+										<div class="text-center mt-2">
+											<a href="{{ route('login.google.provider') }}">
+												<img src="{{ asset('assets/socialite/google.png') }}"  width="300px" height="50px" alt="">
+											</a>
+										</div>
 									</div>
 								</div>
 							</div>

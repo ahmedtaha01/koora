@@ -7,6 +7,8 @@ use App\Http\Controllers\Auth\ForgetpasswordController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\RegisterOwnerController;
+use App\Http\Controllers\Auth\Socialite\FacebookController;
+use App\Http\Controllers\Auth\Socialite\GoogleController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\StadiumController;
 use App\Http\Controllers\User\MatchController;
@@ -46,6 +48,18 @@ Route::prefix('/login')->middleware('guest')->name('login')->group(function(){
     Route::get('',[LoginController::class,'index']);
 
     Route::post('',[LoginController::class,'login']);
+
+    Route::prefix('/facebook')->name('.facebook')->group(function(){
+        Route::get('/provider',[FacebookController::class,'redirectToProvider'])->name('.provider');
+
+        Route::get('/callback',[FacebookController::class,'handleCallback'])->name('.callback');
+    });
+
+    Route::prefix('/google')->name('.google')->group(function(){
+        Route::get('/provider',[GoogleController::class,'redirectToProvider'])->name('.provider');
+
+        Route::get('/callback',[GoogleController::class,'handleCallback'])->name('.callback');
+    });
 
     Route::get('/forget_password',[ForgetpasswordController::class,'index'])->name('.forget_password');
 
