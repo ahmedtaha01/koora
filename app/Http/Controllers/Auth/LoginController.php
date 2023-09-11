@@ -12,6 +12,8 @@ use App\Traits\LoginTrait;
 class LoginController extends Controller
 {
     use LoginTrait;
+
+        
     public function index(){
         return view('registration.login');
     }
