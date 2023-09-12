@@ -1,4 +1,6 @@
-
+<script>
+    window.csrfToken = '{{ csrf_token() }}';
+</script>
 <!-- jQuery -->
 <script src="{{ asset('assets/registration/js/jquery.min.js') }}"></script>
 
@@ -33,9 +35,12 @@
 <script src="{{ asset('assets/registration/plugins/booking/booking-js.js') }}"></script>
 @endif
 
+<!-- checkout -->
+<script src="https://cdn.checkout.com/js/framesv2.min.js"></script>
+<script src="{{ asset('assets/payments/checkout/app.js') }}"></script>
+
 <!-- Select2 JS -->
 <script src="{{ asset('assets/registration/plugins/select2/js/select2.min.js') }}"></script>
-
 
 <script>
     function Time(){
@@ -44,7 +49,46 @@
         time.value = element[0].innerText;
     }
 </script>
+<script src="https://js.stripe.com/v3/"></script>
+    <script>
+        
+        let cardElement;
+        let stripe = Stripe('{{ env("STRIPE_KEY") }}')
+        const elements = stripe.elements()
+        cardElement = elements.create('card', {
+            style: {
+                base: {
+                    fontSize: '16px'
+                }
+            }
+        })
+        const cardForm = document.getElementById('card-form')
+        const cardName = document.getElementById('card-name')
+        cardElement.mount('#card')
+        cardForm.addEventListener('submit', async (e) => {
+            e.preventDefault()
+            const { paymentMethod, error } = await stripe.createPaymentMethod({
+                type: 'card',
+                card: cardElement,
+                billing_details: {
+                    name: cardName.value
+                }
+            })
+            if (error) {
+                console.log(error)
+            } else {
+                let input = document.createElement('input')
+                input.setAttribute('type', 'hidden')
+                input.setAttribute('name', 'payment_method')
+                input.setAttribute('value', paymentMethod.id)
+                cardForm.appendChild(input)
+                cardForm.submit()
+            }
+        })
 
+        
+        
+    </script>
 <script>
     jQuery(document).ready(function(){
     jQuery('#rev_slider_4').show().revolution({

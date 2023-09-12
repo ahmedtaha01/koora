@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="{{ asset('assets/registration/css/bootstrap-rtl.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/registration/css/bootstrap-rtl.min.css') }}">
 
-
 <!-- Fontawesome CSS -->
 <link rel="stylesheet" href="{{ asset('assets/registration/plugins/fontawesome/css/fontawesome.min.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/registration/plugins/fontawesome/css/all.min.css') }}">
@@ -41,4 +40,5 @@
     <link rel="stylesheet" href="{{ asset('assets/registration/plugins/select2/css/select2.min.css') }}">
 
 
-
+    <!-- checkout -->
+    <link rel="stylesheet" href="{{ asset('assets/payments/checkout/style.css') }}">

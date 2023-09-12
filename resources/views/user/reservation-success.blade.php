@@ -40,7 +40,7 @@
 							@endphp
 							
 							<p>تم حجز  <strong> {{ $data['stadium']->name }}</strong><br> في <strong>{{ $data['day'] }}<br>  {{ $afterHour }} <-- {{ $data['time'] }}</strong></p>
-							<a href="{{ route('user.invoice',$data['reservation_id']) }}" class="btn btn-primary view-inv-btn">تفاصيل الفاتورة</a>
+							{{-- <a href="{{ route('user.invoice',$data['reservation_id']) }}" class="btn btn-primary view-inv-btn">تفاصيل الفاتورة</a> --}}
 						</div>
 					</div>
 				</div>

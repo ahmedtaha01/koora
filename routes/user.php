@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ReservationController;
+use App\Http\Controllers\User\BookingController;
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\IndexController;
 use App\Http\Controllers\User\ProfileController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\User\StadiumController;
 use App\Http\Controllers\User\InvoiceController;
 use App\Http\Controllers\User\ProfilePassworController;
 use App\Http\Controllers\User\ReviewController;
+use App\Payments\PaypalPayment;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
@@ -36,7 +38,7 @@ Route::prefix('user')->name('user.')->middleware(['auth',])->group(function(){
 
     Route::get('reservation_checkout',[ReservationViewController::class,'ReservationViewController@choosePayment'])->name('choose_checkout');
 
-    Route::post('reservation_success',[ReservationViewController::class,'success'])->name('reservation_success');
+    Route::post('booking',[BookingController::class,'book'])->name('booking');
 
     Route::get('profile_settings',[ProfileController::class,'index'])->name('profile_settings');
 
@@ -49,6 +51,11 @@ Route::prefix('user')->name('user.')->middleware(['auth',])->group(function(){
     Route::get('update_password',[ProfilePassworController::class,'index'])->name('update_password');
 
     Route::post('update_password',[ProfilePassworController::class,'update'])->name('update_password');
+
+    Route::prefix('paypal')->name('paypal')->group(function(){
+        Route::get('success',[PaypalPayment::class,'success'])->name('.success');
+        Route::get('cancel',[PaypalPayment::class,'cancel'])->name('.cancel');
+    });
 
 });
 

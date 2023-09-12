@@ -14,6 +14,7 @@ class AddSocialiteToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
+            
             $table->string('provider_id')->after('id')->nullable();
             $table->string('provider_type')->nullable();
         });
@@ -27,7 +28,8 @@ class AddSocialiteToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            // $table->dropColumn('provider_id');
+            // $table->dropColumn('provider_type');
         });
     }
 }

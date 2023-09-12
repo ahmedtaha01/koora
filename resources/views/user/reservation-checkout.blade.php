@@ -88,8 +88,8 @@
 				<div class="card">
 					<div class="card-body">
 					
-						<!-- Checkout Form -->
-						<form action="{{ route('user.reservation_success') }}" method="post">
+						<!-- stripe -->
+						<form action="{{ route('user.booking') }}" method="post" id="card-form">
 							@csrf
 							<input type="hidden" name="day" value="{{ $data['day'] }}">
 							<input type="hidden" name="time" value="{{ $data['time'] }}">
@@ -97,65 +97,86 @@
 							<div class="payment-widget">
 								<h4 class="card-title">طريقة الدفع او السداد</h4>
 								
-								<!-- Credit Card Payment -->
-								<div class="payment-list">
-									<label class="payment-radio credit-card-option">
-										<input type="radio" name="radio" checked>
-										<span class="checkmark"></span>
-										<i class="far fa-credit-card"></i>
-										بطاقة إئتمان
-									</label>
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group card-label">
-												<label for="card_name">الأسم الموجود علي البطاقة</label>
-												<input class="form-control" id="card_name" type="text">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group card-label">
-												<label for="card_number">رقم البطاقة</label>
-												<input class="form-control" id="card_number" placeholder="1234  5678  9876  5432" type="text">
-											</div>
-										</div>
-										<div class="col-md-4">
-											<div class="form-group card-label">
-												<label for="expiry_month">شهر انتهاء الصلاحية</label>
-												<input class="form-control" id="expiry_month" placeholder="MM" type="text">
-											</div>
-										</div>
-										<div class="col-md-4">
-											<div class="form-group card-label">
-												<label for="expiry_year">سنة انتهاء الصلاحية</label>
-												<input class="form-control" id="expiry_year" placeholder="YY" type="text">
-											</div>
-										</div>
-										<div class="col-md-4">
-											<div class="form-group card-label">
-												<label for="cvv">رمز التحقق</label>
-												<input class="form-control" id="cvv" type="text">
-											</div>
-										</div>
+								<img src="{{ asset('assets/payments/stripe.jpg') }}" width="200px" height="50px" alt="">
+
+								<input type="hidden" name="payment" value="stripe" >
+									
+								
+								<div class="mb-3">
+									<label for="card-name" class="mt-2">الاسم</label>
+									<input type="text" name="name" id="card-name" class="form-control floating">
+								</div>
+								<div class="mb-3">
+									<label for="email" class="">البريد الالكتروني</label>
+									<input type="email" name="email" id="email" class="form-control floating">
+								</div>
+								<div class="mb-3" dir="ltr">
+									<label for="card" class="focus-label">Card details</label>
+						
+									<div class="focus-label">
+										<div id="card"></div>
 									</div>
 								</div>
-								<!-- /Credit Card Payment -->
+								<div class="submit-section mt-4 text-center">
+									<button type="submit" class="btn btn-primary submit-btn"> ادفع</button>
+								</div>
+							</div>	
+						</form>
+								
+								<hr>
+								<!-- Paypal Payment -->
+								<form action="{{ route('user.booking') }}"  method="post">
+									@csrf
+									<input type="hidden" name="day" value="{{ $data['day'] }}">
+									<input type="hidden" name="time" value="{{ $data['time'] }}">
+									<input type="hidden" name="stadium" value="{{ $data['stadium']->id }}">
+									<div class="payment-list">
+										<label class="payment-radio credit-card-option">
+											<input type="hidden" name="payment" value="paypal">
+											
+											<i class="fab fa-paypal"></i>
+											باي بال
+										<img src="{{ asset('assets/registration/img/paypall.jpg') }}" alt="paypal">
+										</label>
+									</div>
+									<div class="submit-section mt-4 text-center">
+										<button type="submit"  class="btn btn-primary submit-btn"> ادفع</button>
+									</div>
+								</form>
 								
 								<!-- Paypal Payment -->
+								<hr>
+								<!-- checkout payment -->
 								<div class="payment-list">
-									<label class="payment-radio paypal-option">
-										<input type="radio" name="radio">
-										<span class="checkmark"></span>
-										<i class="fab fa-paypal"></i>
-										باي بال
-									<img src="{{ asset('assets/registration/img/paypall.jpg') }}" alt="paypal">
-									</label>
+									
+									<input type="hidden" name="payment" value="checkout">
+
+									<form id="payment-form" method="POST" action="https://merchant.com/charge-card">
+										<input type="hidden" name="day" id="day" value="{{ $data['day'] }}">
+										<input type="hidden" name="time" id="time" value="{{ $data['time'] }}">
+										<input type="hidden" name="stadium" id="stadium" value="{{ $data['stadium']->id }}">
+											<div class="one-liner">
+												<div class="card-frame">
+													
+												</div>
+												{{-- <button id="pay-button" disabled>PAY GBP 24.99</button> --}}
+											</div>
+										
+										
+										<p class="error-message"></p>
+										<p class="success-payment-message"></p>
+										<div class="submit-section mt-4 text-center">
+											<button type="submit" id="pay-button"  class="btn btn-primary submit-btn"> ادفع</button>
+										</div>
+									</form> 
 								</div>
-								<!-- /Paypal Payment -->
-								
+							
+								<!-- checkout payment -->
+								<hr>
 								<!-- Cash Payment -->
 								<div class="payment-list">
 									<label class="payment-radio paypal-option">
-										<input type="radio" name="radio">
+										<input type="radio" name="payment" onclick="check()" value="cash">
 										<span class="checkmark"></span>
 										<i class="far fa-money-bill-alt"></i>
 										دفع نقدي
@@ -164,9 +185,7 @@
 								<!-- /Cash Payment -->
 								
 								<!-- Submit Section -->
-								<div class="submit-section mt-4 text-center">
-									<button type="submit" class="btn btn-primary submit-btn">أكد و ادفع</button>
-								</div>
+								
 								<!-- /Submit Section -->
 								
 							</div>
@@ -177,6 +196,5 @@
 			</div>
 		</div>
 	</div>
-	
-@endsection
 
+@endsection
