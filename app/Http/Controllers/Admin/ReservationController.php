@@ -63,7 +63,7 @@ class ReservationController extends Controller
         $invoice = DB::table('matchs')
         ->join('users','user_id','=','users.id')
         ->join('stadiums','stadium_id','=','stadiums.id')
-        ->where('matchs.id',$id)->where('delete_at',null)
+        ->where('matchs.id',$id)->where('deleted_at',null)
         ->first(['stadiums.name as stadium_name','stadiums.address','stadiums.hour_price',
         'users.name as user_name','users.email','users.phone',
         'matchs.hours','matchs.money','matchs.code','matchs.created_at','matchs.hours']);

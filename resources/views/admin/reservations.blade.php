@@ -58,7 +58,7 @@
 											</td>
 											@php
                                                 $data = explode(' ',$reservation->date);
-                                                $data[2] = date('H:i:s', strtotime($data[1]. '-'.$reservation->hours));
+                                                $data[2] = date('H:i:s', strtotime($data[1]. '+'.$reservation->hours));
                                             @endphp
                                             <td>{{ $data[0] }} <span class="text-primary d-block">{{ $data[1] }}-{{ $data[2] }}</span></td>
 											<td>{{ $reservation->hours }}</td>
@@ -167,7 +167,7 @@
 					<h4 class="modal-title">حذف</h4>
 					<p class="mb-4">هل أنت متأكد من أنك تريد الحذف؟</p>
 					<input hidden id='transaction_id' name="transaction_id">
-					<button type="button" class="btn btn-primary" onclick="deleteTransaction()">حفظ</button>
+					<button type="button" class="btn btn-primary" onclick="deleteTransaction()">نعم</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">إغلاق</button>
 				</div>
 			</div>

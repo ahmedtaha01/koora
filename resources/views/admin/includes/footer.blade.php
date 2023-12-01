@@ -18,7 +18,7 @@
         // for updation the status of a reservation
         function updateStatus(id){
                 $.ajax({
-                url: 'http://127.0.0.1:8000/admin/reservationUpdateService/'+id,
+                url: '/admin/reservationUpdateService/'+id,
                 method: 'GET',
                 dataType: 'JSON',
                 success:function(response)
@@ -38,7 +38,7 @@
         function deleteReview2(){
             id = document.getElementById('review_id').value;
             $.ajax({
-                url: 'http://127.0.0.1:8000/admin/reviews/'+id,
+                url: '/admin/reviews/'+id,
                 method: 'Delete',
                 data:{
                     "_token": "{{ csrf_token() }}",
@@ -62,7 +62,7 @@
         function deleteTransaction(){
             id = document.getElementById('transaction_id').value;
             $.ajax({
-                url: 'http://127.0.0.1:8000/admin/reservations/'+id,
+                url: '/admin/reservations/'+id,
                 method: 'Delete',
                 data:{
                     "_token": "{{ csrf_token() }}",
@@ -72,6 +72,7 @@
                 success:function(response)
                 {
                     console.log('success');
+                    
                 },
                 error: function(response) {
                     console.log('failed');

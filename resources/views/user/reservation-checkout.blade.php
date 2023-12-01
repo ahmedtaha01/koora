@@ -147,7 +147,7 @@
 								<!-- Paypal Payment -->
 								<hr>
 								<!-- checkout payment -->
-								<div class="payment-list">
+								{{-- <div class="payment-list">
 									
 									<input type="hidden" name="payment" value="checkout">
 
@@ -159,7 +159,7 @@
 												<div class="card-frame">
 													
 												</div>
-												{{-- <button id="pay-button" disabled>PAY GBP 24.99</button> --}}
+												 <button id="pay-button" disabled>PAY GBP 24.99</button> 
 											</div>
 										
 										
@@ -169,18 +169,27 @@
 											<button type="submit" id="pay-button"  class="btn btn-primary submit-btn"> ادفع</button>
 										</div>
 									</form> 
-								</div>
+								</div> --}}
 							
 								<!-- checkout payment -->
 								<hr>
 								<!-- Cash Payment -->
 								<div class="payment-list">
 									<label class="payment-radio paypal-option">
-										<input type="radio" name="payment" onclick="check()" value="cash">
-										<span class="checkmark"></span>
+										
 										<i class="far fa-money-bill-alt"></i>
 										دفع نقدي
 									</label>
+									<div class="submit-section mt-4 text-center">
+										<form action="{{ route('user.booking') }}" method="post">
+											@csrf
+											<input type="hidden" name="day" value="{{ $data['day'] }}">
+											<input type="hidden" name="time" value="{{ $data['time'] }}">
+											<input type="hidden" name="stadium" value="{{ $data['stadium']->id }}">
+											<input type="hidden" name="payment" value="cash" >
+											<button type="submit"  class="btn btn-primary"> اكمل</button>
+										</form>
+									</div>
 								</div>
 								<!-- /Cash Payment -->
 								
